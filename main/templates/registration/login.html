@@ -2,7 +2,13 @@
 
 {% block title %} <title>Вход в аккаунт</title> {% endblock %}
 
-<!-- {% block static %} <link rel="stylesheet" href="/static/css/login.css"> {% endblock %} -->
+{% block static %}
+ <!-- <link rel="stylesheet" href="/static/css/login.css">  -->
+<style media="screen">
+	#login_input {max-width: 600px;}
+</style>
+
+{% endblock %}
 
 {% block content %}
 <div class="container">
