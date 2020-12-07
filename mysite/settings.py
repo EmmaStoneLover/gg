@@ -124,7 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-import dj-database-url
+# import dj-database-url
 
 db_from_env = dj-database-url.config()
 DATABASE['default'].update(db_from_env)
