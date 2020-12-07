@@ -1,0 +1,37 @@
+{% extends 'wrapper.html' %}
+
+{% block title %} <title>Вход в аккаунт</title> {% endblock %}
+
+<!-- {% block static %} <link rel="stylesheet" href="/static/css/login.css"> {% endblock %} -->
+
+{% block content %}
+<div class="container">
+	{% if user.is_authenticated %}
+
+	<div class="row justify-content-center">
+		<div class="login_content">
+			<div class="col">
+				<h1>Привет, {{ user.username }}</h1>
+			</div>
+			<div class="col">
+				<a class="btn btn-info" href="{% url 'logout' %}">Выйти</a>
+			</div>
+		</div>
+	</div>
+
+	{% else %}
+
+	<div class="row justify-content-center">
+
+			<h3>Ты не вошел, тебе </h3>
+			<span>
+				<a class="btn btn-info ml-2" href="{% url 'login' %}">сюда</a>
+			</span>
+
+	</div>
+
+	{% endif %}
+
+</div>
+</div>
+{% endblock %}

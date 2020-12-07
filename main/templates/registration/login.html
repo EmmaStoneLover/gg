@@ -1,0 +1,33 @@
+{% extends 'wrapper.html' %}
+
+{% block title %} <title>Вход в аккаунт</title> {% endblock %}
+
+<!-- {% block static %} <link rel="stylesheet" href="/static/css/login.css"> {% endblock %} -->
+
+{% block content %}
+<div class="container">
+
+		<div class="row justify-content-center">
+      <div id="login_input"
+           class="w-100 bg-dark mb-5 rounded">
+        <div class="card-header">
+          <h5>Вход в аккаунт</h5>
+        </div>
+        <form class="card-body"
+              method="post"
+              enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.username }}<br>
+					{{ form.password }}<br>
+          <button id=""
+                  type="submit"
+                  class=" btn btn-success mt-2 rounded">
+              Войти
+          </button>
+        </form>
+      </div>
+		</div>
+
+</div>
+</div>
+{% endblock %}

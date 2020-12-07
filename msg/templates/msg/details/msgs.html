@@ -1,0 +1,45 @@
+{% extends 'wrapper.html' %}
+
+{% block title %} <title>ЬУЬ-Новости</title> {% endblock %}
+
+{% block static %} <link rel="stylesheet" href="/static/msg/css/msg.css"> {% endblock %}
+
+{% block js %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+  <script type="text/javascript" src="/static/js/jquery.js"></script>
+  <script type="text/javascript" src="/static/msg/js/msg.js">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+
+  <h1>Новости</h1><br>
+
+  {% if message %}
+  <div class="msg">
+    {% for m in message %}
+
+      <div>
+        <a id="msg_id" href="/msg/{{ m.id }}" class="msg_msgs card {{ m.card_bg_color_choice }} {{ m.card_font_color_choice }} mb-4 rounded">
+          <div class="card-header">
+            <div>{{ m.text|safe }}</div>
+            {% if m.picture != 'Cсылка' and m.picture != '' and m.picture != 'none' %}
+            <img class="msg_img mt-2 mb-2" src="{{ m.picture }}">
+            {% endif %}
+          </div>
+          <div class="card-body">
+            <span class="card-text float-right">{{ m.date|date:'H.i - d.m.Y' }}</span>
+            <span class="card-title">От: {{ m.user }}</span>
+          </div>
+        </a>
+      </div>
+
+    {% endfor %}
+  </div>
+  {% else %}
+    <div class="container">
+      <p>Сообщений нет</p>
+    </div>
+  {% endif %}
+
+{% endblock %}

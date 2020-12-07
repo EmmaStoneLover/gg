@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    {% block static %}{% endblock %}
+    {% block title %}{% endblock %}
+  </head>
+  <body>
+    {% include 'includes/header.html' %}
+    <div class="content container">
+      {% block content %}
+      {% endblock %}
+    </div>
+    {% include 'includes/footer.html' %}
+
+    {% block js %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,185 @@
+{% extends 'wrapper.html' %}
+
+{% block title %} <title>ЬУЬ-Новости</title> {% endblock %}
+
+{% block static %} <link rel="stylesheet" href="/static/msg/css/msg.css"> {% endblock %}
+
+{% block js %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+  <script type="text/javascript" src="/static/js/jquery.js"></script>
+  <script type="text/javascript" src="/static/msg/js/msg.js">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+          integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+          crossorigin="anonymous">
+  </script>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+  <div class="col-lg-5 jastify-lg-right">
+    <div id="msg_title_and_input">
+      <!-- ьУь Новость -->
+      <div id="msg_title"
+           class="row justify-content-between">
+        <div class="col-8">
+            <h1 class="align-left mb-4">
+              Помойка
+            </h1>
+        </div>
+        <div class="col-4">
+          <div class="row justify-content-end pr-3">
+            <button type="button" id="msg_input_show_button"
+                    class="btn btn-success rounded">
+                Добавить
+            </button>
+            <button type="button" id="msg_input_hide_button"
+                    class="btn btn-success rounded">
+                Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Input блок -->
+      <div class="row">
+        <div id="msg_input"
+             class="msg_input bg-dark mb-5 rounded">
+          <div class="card-header">
+            <h5>Добавить ЬУЬ новость</h5>
+          </div>
+          <form class="card-body"
+                method="post"
+                enctype="multipart/form-data">
+            {% csrf_token %}
+            <span>{{ error }}</span>
+            {{ form.text }}<br>
+            {{ form.user }}<br>
+            <div id="msg_img_add_div">
+              <button id="msg_input_add_hide"
+                      type="button"
+                      class="msg_input_button btn-sm btn-success mb-2 rounded">
+                Дополнительно...
+              </button>
+              <div id="msg_input_add_hide_div"
+                   class="invisible position-absolute z-index-property">
+                <div class="form-group mt-3">
+                  {{ form.picture_file }}
+                  <label for="msg_input_picture_file"
+                         class="msg_input_text_and_bg_color form-control text-white bg-dark rounded">
+                    Загрузить файл
+                  </label>
+                </div>
+                <div class="bs-component">
+                  <div class="form-group mt-3">{{ form.card_bg_color_choice }}</div>
+                  <div class="form-group mt-3">{{ form.card_font_color_choice }}</div>
+                </div>
+              </div>
+            </div>
+            <button id="msg_input_button"
+                    type="submit"
+                    class="msg_input_button btn btn-success mt-2 rounded">
+                Отправить
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <div class="input-group">
+      <input id="msg_search_input"
+             class="msg_search form-control bg-dark text-white mb-4 border-0 rounded-left"
+             aria-describedby="button-addon4"
+             placeholder="Поиск"
+             type="text">
+      <div class="input-group-append">
+        <button id="msg_search_input_button_clear"
+                class="btn-dark text-secondary mb-4 border-0"
+                type="button">
+          Очистить
+        </button>
+        <button id="msg_search_input_button_find"
+                type="button"
+                class="btn-dark text-secondary bg-dark mb-4 border-0 rounded-right">
+          Найти
+        </button>
+      </div>
+    </div>
+
+    <p id="msg_not_found"
+       style="display: none;">
+      Ничего не найдено
+    </p>
+
+    <div class="msg">
+      {% for m in message %}
+        {% if m.top == 'True' %}
+        <div id="msg_id"
+             name="{{ m.id }}"
+             class="msg_msgs rounded card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
+                                          {{ m.card_font_color_choice }} border-0">
+          <div class="card-header">
+            <div class="msg_text">{{ m.text|safe|linebreaks }}</div>
+          </div>
+          <div class="card-img">
+            {% if m.picture != 'none' %}
+              <img src="{{ m.picture }}">
+            {% endif %}
+            {% if m.picture_file != 'none' %}
+              <img src="/media/{{ m.picture_file }}">
+            {% endif %}
+          </div>
+          <div class="card-body">
+            <span class="card-text float-right">{{ m.date|date:'H.i - d.m.Y' }}</span>
+            <span class="card-title">
+              От: {{ m.user }}
+            </span>
+            <span class="card-title">
+               - 3акреплено
+            </span>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if message %}
+    <div class="msg">
+      {% for m in message %}
+        {% if m.top == 'False' %}
+        <div>
+          <div id="msg_id"
+               class="msg_msgs card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
+                                    {{ m.card_font_color_choice }} border-0">
+            <div class="card-header">
+              {{ m.text|safe|linebreaks }}
+            </div>
+            <div class="card-img">
+              {% if m.picture != 'none' %}
+                <img src="{{ m.picture }}">
+              {% endif %}
+              {% if m.picture_file != 'none' %}
+                <img src="/media/{{ m.picture_file }}">
+              {% endif %}
+            </div>
+            <div class="card-body">
+              <span class="card-text float-right">{{ m.date|date:'H.i - d.m.Y' }}</span>
+              <span class="card-title">От: {{ m.user }}</span>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% else %}
+      <div class="container">
+        <p>Сообщений нет</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
