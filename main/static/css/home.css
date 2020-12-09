@@ -1,1 +1,7 @@
-.container {font-size: 3rem;}
+.container {}
+.container h1{font-size: 4rem;}
+.container h2{font-size: 3.5rem;}
+.container h3{font-size: 3.5rem;}
+.container h4{font-size: 3.5rem;}
+.container p{font-size: 3.5rem;}
+/* .container h2{} */
