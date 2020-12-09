@@ -1,9 +1,6 @@
 .border-white {border: 1px solid white;}
 #msg_id {text-decoration-line: none;}
 /* .msg_input_text_and_bg_color::placeholder {color: white;} */
-.rounded {border-radius: 0.4rem!important;}
-.rounded-right {border-top-right-radius: 0.4rem!important; border-bottom-right-radius: 0.4rem!important;}
-.rounded-left {border-top-left-radius: 0.4rem!important; border-bottom-left-radius: 0.4rem!important;}
 .outerspace {
   top: -1000px;
   position:absolute;

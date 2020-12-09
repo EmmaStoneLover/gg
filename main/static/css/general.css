@@ -18,6 +18,10 @@ body {
 .content {flex-grow: 1;}
 .header, .footer {box-shadow: 3px 3px 100px -20px black;}
 
+.rounded {border-radius: 0.5rem!important;}
+.rounded-right {border-top-right-radius: 0.5rem!important; border-bottom-right-radius: 0.5rem!important;}
+.rounded-left {border-top-left-radius: 0.5rem!important; border-bottom-left-radius: 0.5rem!important;}
+
 @media (max-width:991px) {
   body {font-size: 2rem;}
   .content {margin-top: 25px;}
