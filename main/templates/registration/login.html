@@ -12,15 +12,21 @@
         <div class="card-header">
           <h4>Вход в аккаунт</h4>
         </div>
-        <form class="card-body"
+        <form class="card-body m-sm-3 m-md-2 m-lg-1"
               method="post"
               enctype="multipart/form-data">
           {% csrf_token %}
-          {{ form.username }}<br>
-					{{ form.password }}<br>
+					<div class="row mb-2">
+						<div class="col-sm-3 col-md-3 col-lg-6 pt-2"><p>Логин:</p></div>
+						<div class="col-sm-9 col-md-9 col-lg-6 login_password">{{ form.username }}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-3 col-md-3 col-lg-6 pt-2"><p>Пароль:</p></div>
+						<div class="col-sm-9 col-md-9 col-lg-6 login_password">{{ form.password }}</div>
+					</div>
           <button id=""
                   type="submit"
-                  class=" btn btn-success mt-2 rounded">
+                  class=" btn btn-success mt-3 rounded">
               Войти
           </button>
         </form>
