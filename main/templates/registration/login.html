@@ -2,22 +2,15 @@
 
 {% block title %} <title>Вход в аккаунт</title> {% endblock %}
 
-{% block static %}
- <!-- <link rel="stylesheet" href="/static/css/login.css">  -->
-<style media="screen">
-	#login_input {max-width: 600px;}
-</style>
-
-{% endblock %}
+{% block static %} <link rel="stylesheet" href="/static/css/login.css"> {% endblock %}
 
 {% block content %}
-<div class="container">
 
 		<div class="row justify-content-center">
       <div id="login_input"
            class="w-100 bg-dark mb-5 rounded">
         <div class="card-header">
-          <h5>Вход в аккаунт</h5>
+          <h4>Вход в аккаунт</h4>
         </div>
         <form class="card-body"
               method="post"
@@ -34,6 +27,4 @@
       </div>
 		</div>
 
-</div>
-</div>
 {% endblock %}

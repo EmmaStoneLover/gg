@@ -6,42 +6,8 @@
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/general.css">
-    {% block static %}{% endblock %}
-    <!-- <style media="screen">
-
-    html, body {
-        height: 100%;
-        background: #272b30;
-        color: white;
-        font-family: -apple-system, sans-serif;
-        /* font-family: Menlo, Consolas, DejaVu Sans Mono, monospace; */
-    }
-      .footer {padding: 10px;}
-    body {
-      display: flex;
-      flex-direction: column;}
-    .content, .header, .footer {
-      box-sizing: border-box;
-      width: 100%;
-      z-index: 0;}
-    .content {flex-grow: 1;}
-    .header, .footer {box-shadow: 3px 3px 100px -20px black;}
-
-    @media (max-width:991px) {
-      body {font-size: 2rem;}
-      .content {margin-top: 25px;}
-      .navbar {font-size: 2.3rem; padding: 20px; padding-left: 20px;}
-      .navbar .navbar-brand {font-size: 3.5rem;}
-      .container {font-size: 2rem; max-width: 95%;}
-      .footer {padding: 20px;}
-    }
-    @media (min-width:992px) {
-      .header {position: fixed; z-index: 1;}
-      .content {margin-top: 80px;}
-    }
-
-    </style> -->
-    {% block title %}{% endblock %}
+    {% block static %} {% endblock %}
+    {% block title %} {% endblock %}
   </head>
   <body>
     {% include 'includes/header.html' %}
