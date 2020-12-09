@@ -14,12 +14,12 @@
 				<h1>Привет, {{ user.username }}</h1><br>
 				<h4>Какая-то инфа о тебе:</h4>
 				<p> Твои инициалы:  <big class="text-success">{{ user.last_name}} {{ user.first_name }}</big></p>
-				{% if user.email|safe|linebreaks %}
-				<p>Твоя почта:  <big class="text-success">{{user.email}}</big></p>
+				{% if user.email %}
+				<p>Твоя почта:  <big class="text-success">{{user.email|linebreaks}}</big></p>
 				{% endif %}
 			</div>
 			<div class="col-lg-2"><br>
-				<a class="btn btn-danger" href="{% url 'logout' %}">Выйти</a>
+				<a class="btn btn-danger rounded" href="{% url 'logout' %}">Выйти</a>
 			</div>
 		</div>
 	</div>
