@@ -1,8 +1,21 @@
 
+user = $('#user_name').attr('name');
+if (user != 'Войти') {
+  $('#msg_input_user_hide').hide();
+}
+
+$(document).ready(function() {
+  if (user == 'Михаил') {$('#msg_input_user').val('Админ');}
+  else {$('#msg_input_user').val(user);}
+});
+
 $('#msg_input_show_button').on('click', function(){
   $('#msg_input').show();
   $('#msg_input_show_button').hide();
   $('#msg_input_hide_button').show();
+  if (user != 'Войти') {
+    $('#msg_input_user_hide').hide();
+  }
 });
 $('#msg_input_hide_button').on('click', function(){
   $('#msg_input').hide();
