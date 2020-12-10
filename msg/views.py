@@ -11,8 +11,6 @@ def msg(request):
         form = MessageForm(request.POST, request.FILES)
         print(form['text'].value())
         if form.is_valid():
-            if request.user.is_authenticated == True:
-                form.user = username
             form.save()
             return redirect('/msg')
         else:
