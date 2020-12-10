@@ -14,6 +14,7 @@ class MessageForm(ModelForm):
                 'rows':'4'
                 }),
             'user': TextInput(attrs={
+                'id': 'msg_input_user',
                 'class': 'msg_input_text_and_bg_color form-control text-white bg-dark rounded',
                 'placeholder': 'Отправитель',
                 'value': ''

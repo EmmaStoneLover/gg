@@ -8,6 +8,7 @@ def msg(request):
     error = ''
     if request.method == "POST":
         form = MessageForm(request.POST, request.FILES)
+        print(form['text'].value())
         if form.is_valid():
             form.save()
             return redirect('/msg')

@@ -5,7 +5,7 @@
   top: -1000px;
   position:absolute;
   z-index: -999;}
-
+button:focus{outline:none;}
 .msg_input {border-radius: 3px; z-index: 1;}
 #msg_input_add_hide {border: none;}
 #msg_input_picture_file {position: absolute; display: none;}
