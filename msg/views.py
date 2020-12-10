@@ -12,7 +12,7 @@ def msg(request):
         print(form['text'].value())
         if form.is_valid():
             if request.user.is_authenticated():
-                form.cleaned_data.get('user') = username
+                form.user = username
             form.save()
             return redirect('/msg')
         else:
