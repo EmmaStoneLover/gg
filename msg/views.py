@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Message
 from django.views.generic import ListView
 from .forms import MessageForm
-from django.contrib.auth import User
+from django.contrib.auth import username
 
 def msg(request):
     message = Message.objects.order_by('-id').all()
