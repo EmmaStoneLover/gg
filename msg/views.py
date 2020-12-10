@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Message
 from django.views.generic import ListView
 from .forms import MessageForm
+from django.contrib.auth import User
 
 def msg(request):
     message = Message.objects.order_by('-id').all()
@@ -10,6 +11,8 @@ def msg(request):
         form = MessageForm(request.POST, request.FILES)
         print(form['text'].value())
         if form.is_valid():
+            if request.user.is_authenticated():
+                form.cleaned_data.get (‘user’) = username
             form.save()
             return redirect('/msg')
         else:
