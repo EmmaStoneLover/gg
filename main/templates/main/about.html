@@ -6,16 +6,27 @@
 
 
 {% block content %}
-  <h1>В чем сейчас проблема?</h1><br>
+  <div class="row justify-content-between mr-3">
+    <div class="col-9">
+      <h1>В чем проблема?</h1>
+    </div>
+    <div class="col-2">
+      <a class="btn btn-danger mb-2 rounded"
+         href="{% url 'home' %}">
+        Назад
+      </a>
+    </div>
+  </div>
+  <br>
   <div class="row">
-    <div class="col-md col-lg">
+    <div class="col-lg">
       <h5>Этот сайт перезагружается каждые 30 мин</h5>
-      <img class="w-100 mt-2 mb-3 rounded" src="/media/main/3.jpg">
+      <img class="w-100 mt-3 mb-3 rounded" src="/media/main/3.jpg">
       <h5>По задумке сайт должен был работать, но увы</h5><br>
     </div>
-    <div class="col-dm col-lg">
+    <div class="col-lg">
       <h5>Всё потому что у меня нет денег на хостинг, <br> хоть какой-то нормальный.</h5>
-      <img class="w-100 mt-3 mb-2 rounded" src="/media/main/6.jpg">
+      <img class="w-100 mt-4 mb-2 rounded" src="/media/main/6.jpg">
       <h4>Памянем</h4>
     </div>
   </div>

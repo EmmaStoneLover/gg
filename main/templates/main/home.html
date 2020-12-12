@@ -8,30 +8,51 @@
 {% endblock %}
 
 {% block content %}
-
-  <h1>Привет, ты на сайте Котики Ашотики!!!</h1><br>
+  <h1>Привет, ты на сайте Котики Ашотики!!!</h1>
   <div class="row">
-    <div class="col-md-12 col-lg-4">
-    <h5>Ашотик рад что ты зашел)</h5>
-    <h5>Тут можно что-то найти</h5>
-    <br>
-      <a class="btn btn-warning mb-2 rounded"
-        href="{% url 'about' %}">
-        Страница о сайте
-      </a><br>
-      <a class="btn btn-info mr-1 rounded"
-         href="{% url 'login' %}">
-        Войти
-      </a>
-      <a class="btn btn-success rounded"
-         href="{% url 'msg' %}">
-        На помойку
-      </a>
-      <br><br>
+    <div class="col-md-12 col-lg-3">
+
+      <div class="row">
+        <div class="col-md col-lg-12">
+          <br>
+          <h5>Ашотик рад что ты зашел)</h5>
+          <h5>Тут можно что-то найти, наверно</h5>
+          <br>
+          <div class="text-right">
+            <a class="btn btn-warning mb-2 rounded"
+               href="{% url 'about' %}">
+              Страница о сайте
+            </a><br>
+            <a class="btn btn-info mr-1 rounded"
+               href="{% url 'login' %}">
+              Войти
+            </a>
+            <a class="btn btn-danger rounded"
+               href="{% url 'msg' %}">
+              На помойку
+            </a>
+          </div>
+          <br><br>
+        </div>
+        <div class="col-md col-lg-12">
+          <img class="w-100 p-0 rounded"
+               src="/media/main/home-sm.jpg">
+        </div>
+      </div>
+
     </div>
-    <div class="col-md-12 col-lg-8">
-      <img class="w-100 rounded" src="/media/main/home.jpg">
-      <h5>Мяу</h5>
+    <div class="col-md-12 col-lg-9 text-right">
+      <img class="w-100 p-0 mt-2 mb-2 rounded"
+           src="/media/main/home.jpg">
+      <h5>Мяу, Вставить текст</h5>
+      <div class="text-left">
+        <h5>
+          Текст Текст Текст Текст  <br>
+          Текст Текст Текст Текст Текст Текст Текст Текст <br>
+          Я не придумал что сюда написать <br>
+        </h5>
+        <br>
+      </div>
     </div>
   </div>
 
