@@ -6,23 +6,30 @@
 
 {% block content %}
 
-		<div class="row-100 justify-content-center">
+		<div class="row justify-content-center">
       <div id="login_input"
            class="w-100 bg-dark mb-5 rounded">
         <div class="card-header">
-          <h4>Вход в аккаунт</h4>
+					<div class="row justify-content-between">
+						<div class="col-5">
+							<h4>Вход в аккаунт</h4>
+						</div>
+						<div class="col-3 mr-1">
+							<a class="btn btn-success rounded" href="/admin">Админка</a>
+						</div>
+					</div>
         </div>
         <form class="card-body m-sm-3 m-md-2 m-lg-1"
               method="post"
               enctype="multipart/form-data">
           {% csrf_token %}
 					<div class="row mb-2">
-						<div class="col-sm-3 col-md-3 col-lg-6 pt-2"><p>Логин:</p></div>
-						<div class="col-sm-9 col-md-9 col-lg-6 login_password">{{ form.username }}</div>
+						<div class="col-sm-3 col-md-3 col-lg-2 pt-2"><p>Логин:</p></div>
+						<div class="col-sm-9 col-md-9 col-lg-10 login_password">{{ form.username }}</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-3 col-md-3 col-lg-6 pt-2"><p>Пароль:</p></div>
-						<div class="col-sm-9 col-md-9 col-lg-6 login_password">{{ form.password }}</div>
+						<div class="col-sm-3 col-md-3 col-lg-2 pt-2"><p>Пароль:</p></div>
+						<div class="col-sm-9 col-md-9 col-lg-10 login_password">{{ form.password }}</div>
 					</div>
           <button id=""
                   type="submit"

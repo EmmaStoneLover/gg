@@ -2,24 +2,20 @@
 	display: block;
 	height: calc(1.5em + .75rem + 2px);
 	padding: .375rem .75rem;
+	width: 100%;
+	border: none;
 }
 
 @media (min-width:992px) {
 #login_input {max-width: 500px;}
+.login_content .btn-success {margin-bottom: 5px;}
 .login_password input {
 	border-radius: 0.5rem!important;
 	}
 }
 @media (max-width:991px) {
-	.content h1{font-size: 4rem;}
-	.content h2{font-size: 3.6rem;}
-	.content h3{font-size: 3.2rem;}
-	.content h4{font-size: 3rem;}
-	.content p{font-size: 2.7rem;}
-	.content .btn {font-size: 2.7rem;}
 	.login_password input {
 		width: 100%;
 		border-radius: 0.8rem!important;
 	}
-	.login_input {max-width: 100%; background: red;}
 }

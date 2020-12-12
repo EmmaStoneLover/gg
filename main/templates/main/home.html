@@ -9,12 +9,30 @@
 
 {% block content %}
 
-  <h1>Привет, ты на сайте Котики Ашотики!!!</h1>
-  <p>Ашотик рад что ты зашел)</p>
-  <a class="btn btn-warning rounded" href="{% url 'about' %}">Страница о сайте</a>
-  <a class="btn btn-success rounded" href="{% url 'msg' %}">На помойку</a>
-  <br><br>
-  <img class="mb-2 rounded w-100" src="/static/main/img/5.jpg">
-  <img class="rounded" src="/static/main/img/2.svg"><br><br>
+  <h1>Привет, ты на сайте Котики Ашотики!!!</h1><br>
+  <div class="row">
+    <div class="col-md-12 col-lg-4">
+    <h5>Ашотик рад что ты зашел)</h5>
+    <h5>Тут можно что-то найти</h5>
+    <br>
+      <a class="btn btn-warning mb-2 rounded"
+        href="{% url 'about' %}">
+        Страница о сайте
+      </a><br>
+      <a class="btn btn-info mr-1 rounded"
+         href="{% url 'login' %}">
+        Войти
+      </a>
+      <a class="btn btn-success rounded"
+         href="{% url 'msg' %}">
+        На помойку
+      </a>
+      <br><br>
+    </div>
+    <div class="col-md-12 col-lg-8">
+      <img class="w-100 rounded" src="/media/main/home.jpg">
+      <h5>Мяу</h5>
+    </div>
+  </div>
 
 {% endblock %}

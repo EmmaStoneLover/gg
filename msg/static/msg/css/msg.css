@@ -5,7 +5,6 @@
   top: -1000px;
   position:absolute;
   z-index: -999;}
-button:focus{outline:none;}
 .msg_input {border-radius: 3px; z-index: 1;}
 #msg_input_add_hide {border: none;}
 #msg_input_picture_file {position: absolute; display: none;}
@@ -13,6 +12,7 @@ button:focus{outline:none;}
 #msg_id .card-header p {margin-bottom: 2px;}
 
 @media (min-width:991px) {
+  #msg_title_and_input {position: fixed; z-index: 1;}
   #msg_input_show_button, #msg_input_hide_button {display: none;}
   .msg_input {
     box-shadow: 3px 3px 100px -20px black;}
@@ -22,36 +22,20 @@ button:focus{outline:none;}
   #msg_id .card-img {padding: 0;}
   #msg_id img {width: 100%;}
   #msg_input .card-header, #msg_input .card-body {padding: 10px;}
-  .msg_input_text_and_bg_color {border: 5px solid rgb(0, 0, 0, 0.2);}
+  .msg_input_text_and_bg_color {border: 2px solid rgb(0, 0, 0, 0.1);}
 }
 
 @media (max-width:991px) {
   #msg_id {font-size: 2.5rem;}
   #msg_id .card-header {font-size: 2.7rem;}
-  p {font-size: 2.5rem;}
-  h1 {font-size: 4.5rem;}
-  h2 {font-size: 4rem;}
-  h3 {font-size: 3.5rem;}
-  h4 {font-size: 3rem;}
-  h5 {font-size: 2.7rem;}
-  a {font-size: 2.5rem;}
   #msg_input, #msg_input_hide_button {display: none;}
   #msg_id .card-header p{font-size: 3rem;}
   #msg_id img {width: 100%;}
-  .btn-lg {font-size: 3rem;}
-  .btn {font-size: 3rem;}
-  .btn-sm {font-size: 2.5rem;}
-  .form-control {font-size: 3rem;}
-  .custom-select {font-size: 3rem;}
+  .content .form-control {font-size: 3rem;}
+  .content .custom-select {font-size: 3rem;}
   .msg_msgs {margin-bottom: 20px;}
   .msg_input, .msg_msgs {min-width: 400px; max-width: 100%; padding: 10px;}
   .form-control-file {font-size: 2.5rem;}
-  .rounded {border-radius: 0.8rem!important;}
-  .rounded-right {border-top-right-radius: 0.8rem!important; border-bottom-right-radius: 0.8rem!important;}
   #msg_search_input_button_find, #msg_search_input_button_clear {font-size: 2.5rem;}
   .msg_input_text_and_bg_color {border: 5px solid rgb(0, 0, 0, 0.2);}
-}
-
-@media (min-width:992px) {
-  #msg_title_and_input {position: fixed; z-index: 1;}
 }

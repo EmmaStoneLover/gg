@@ -1,6 +1,6 @@
 {% block header %}
-<div class="header">
-<div class="navbar top navbar-expand navbar-dark bg-dark">
+<div class="header bg-dark">
+<div class="container navbar top navbar-expand navbar-dark">
 
 	<a class="navbar-brand" href="{% url 'home' %}">Kotiki Ashotiki</a>
 
@@ -21,9 +21,6 @@
 				{% else %}
 					<a class="nav-link" href="{% url 'login' %}">Войти</a>
 				{% endif %}
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/admin">Админка</a>
 			</li>
 		</ul>
 

@@ -6,12 +6,18 @@
 
 
 {% block content %}
-
   <h1>В чем сейчас проблема?</h1><br>
-  <p>Этот сайт перезагружается каждые 30 мин,</p>
-  <p>потому что у меня нет денег на хостинг хоть какой-то нормальный.</p>
-  <p>По задумке сайт должен был работать, но увы</p>
-  <img class="rounded" src="/static/main/img/3.jpg">
-  <p>Памянем</p>
+  <div class="row">
+    <div class="col-md col-lg">
+      <h5>Этот сайт перезагружается каждые 30 мин</h5>
+      <img class="w-100 mt-2 mb-3 rounded" src="/media/main/3.jpg">
+      <h5>По задумке сайт должен был работать, но увы</h5><br>
+    </div>
+    <div class="col-dm col-lg">
+      <h5>Всё потому что у меня нет денег на хостинг, <br> хоть какой-то нормальный.</h5>
+      <img class="w-100 mt-3 mb-2 rounded" src="/media/main/6.jpg">
+      <h4>Памянем</h4>
+    </div>
+  </div>
 
 {% endblock %}

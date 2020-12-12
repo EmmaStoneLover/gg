@@ -42,12 +42,12 @@
       <div class="row">
         <div id="msg_input"
              class="msg_input bg-dark mb-5 rounded">
-          <div class="card-header">
-            <h5>Добавить ЬУЬ новость</h5>
-          </div>
-          <form class="card-body"
+          <form class="card-header"
                 method="post"
                 enctype="multipart/form-data">
+            <div class="mb-3">
+              <h5>Добавить ЬУЬ новость</h5>
+            </div>
             {% csrf_token %}
             <span>{{ error }}</span>
             {{ form.text }}<br>
@@ -81,7 +81,7 @@
             </div>
             <button id="msg_input_button"
                     type="submit"
-                    class="msg_input_button btn btn-success mt-2 rounded">
+                    class="msg_input_button btn btn-success mt-2 mb-2 rounded">
                 Отправить
             </button>
           </form>
