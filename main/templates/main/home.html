@@ -24,7 +24,11 @@
               Страница о сайте
             </a><br>
             <a class="btn btn-info mr-1 rounded"
+              {% if user.is_authenticated %}
+               href="{% url 'account' %}">
+              {% else %}
                href="{% url 'login' %}">
+              {% endif %}
               Войти
             </a>
             <a class="btn btn-danger rounded"
