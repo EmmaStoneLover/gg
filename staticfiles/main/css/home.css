@@ -5,4 +5,5 @@
 
 @media (max-width:991px) {
   .content img {max-width: 100%; padding-bottom: 30px;}
+  .home_img {margin-top: 8px;}
 }
