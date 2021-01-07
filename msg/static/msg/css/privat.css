@@ -1,0 +1,9 @@
+#app textarea {
+	font-size: 2rem;
+}
+#app textarea::placeholder {
+	color: white;
+}
+#app select, #app textarea {
+	border: none;
+}

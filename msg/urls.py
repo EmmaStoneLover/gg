@@ -7,4 +7,5 @@ from .views import *
 
 urlpatterns = [
     path('', msg, name="msg"),
+    path('privat', privat, name="privat"),
 ]
