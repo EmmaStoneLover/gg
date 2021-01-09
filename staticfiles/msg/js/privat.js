@@ -19,7 +19,7 @@ new Vue({
 		}
 	},
 	computed: {
-		smth: function () {
+		smthing: function () {
 			if (this.bg_color == "bg-success")
 			  return "Ура бля!"
 			else
