@@ -26,5 +26,8 @@ def msg(request):
     return render(request, 'msg/msg.html', data)
 
 def privat(request):
-    
-    return render(request, 'msg/privat.html')
+    smth = "Пошел нахуй спать!"
+    data = {
+        'smth': smth
+    }
+    return render(request, 'msg/privat.html', data)
