@@ -15,17 +15,18 @@
 
 <div class="row">
 
+  <!-- Добавить новость -->
   <div class="col-lg-5 jastify-lg-right">
     <div id="msg_title_and_input">
-      <!-- ьУь Новость -->
+
       <div id="msg_title"
            class="row justify-content-between">
         <div class="col-8">
             <h1 class="align-left mb-4">
-              Помойка
-            </h1>
-        </div>
-        <div class="col-4">
+            Помойка
+          </h1>
+      </div>
+      <div class="col-4">
           <div class="row justify-content-end pr-3">
             <button type="button" id="msg_input_show_button"
                     class="btn btn-success rounded">
@@ -42,7 +43,6 @@
       <div class="row">
         <div id="msg_input"
              class="msg_input bg-dark mb-5 rounded">
-          <!-- {% verbatim %}<h1>{{ fuck }}</h1>{% endverbatim %} -->
           <form class="card-header"
                 method="post"
                 enctype="multipart/form-data">
@@ -75,8 +75,12 @@
                   </label>
                 </div>
                 <div class="bs-component">
-                  <div class="form-group mt-3">{{ form.card_bg_color_choice }}</div>
-                  <div class="form-group mt-3">{{ form.card_font_color_choice }}</div>
+                  <div class="form-group mt-3">
+                    {{ form.card_bg_color_choice }}
+                  </div>
+                  <div class="form-group mt-3">
+                    {{ form.card_font_color_choice }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -103,6 +107,8 @@
   </div>
 
   <div class="col-lg-7">
+
+    <!-- Поиск по новостям -->
     <div class="input-group">
       <input id="msg_search_input"
              class="msg_search form-control bg-dark text-white mb-4 border-0 rounded-left"
@@ -122,12 +128,12 @@
         </button>
       </div>
     </div>
-
     <p id="msg_not_found"
        style="display: none;">
       Ничего не найдено
     </p>
 
+    <!-- Закрепленные новости -->
     <div class="msg">
       {% for m in message %}
         {% if m.top == 'True' %}
@@ -136,7 +142,9 @@
              class="msg_msgs rounded card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
                                           {{ m.card_font_color_choice }} border-0">
           <div class="card-header">
-            <div class="msg_text">{{ m.text|safe|linebreaks }}</div>
+            <div class="msg_text">
+              {{ m.text|safe|linebreaks }}
+            </div>
           </div>
           <div class="card-img">
             {% if m.picture != 'none' %}
@@ -147,9 +155,12 @@
             {% endif %}
           </div>
           <div class="card-body">
-            <span class="card-text float-right">{{ m.date|date:'H.i - d.m.Y' }}</span>
+            <span class="card-text float-right">
+              {% if m.admin_news == True %} ✔ {% endif %}
+              {{ m.date|date:'H.i  d.m.Y' }}
+            </span>
             <span class="card-title">
-              От: {{ m.user }}
+              {{ m.user }}
             </span>
             <span class="card-title">
                - 3акреплено
@@ -160,6 +171,7 @@
       {% endfor %}
     </div>
 
+    <!-- Новости -->
     {% if message %}
     <div class="msg">
       {% for m in message %}
@@ -180,8 +192,13 @@
               {% endif %}
             </div>
             <div class="card-body">
-              <span class="card-text float-right">{{ m.date|date:'H.i - d.m.Y' }}</span>
-              <span class="card-title">От: {{ m.user }}</span>
+              <span class="card-text float-right">
+                {% if m.admin_news == True %} ✔ {% endif %}
+                {{ m.date|date:'H.i  d.m.Y' }}
+              </span>
+              <span class="card-title">
+                {{ m.user }}
+              </span>
             </div>
           </div>
         </div>
@@ -193,6 +210,7 @@
         <p>Сообщений нет</p>
       </div>
     {% endif %}
+
   </div>
 </div>
 
