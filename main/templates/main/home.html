@@ -18,12 +18,12 @@
           <h5>Ашотик рад что ты зашел)</h5>
           <h5>Тут можно что-то найти, наверно</h5>
           <br>
-          <div class="text-right">
-            <a class="btn btn-warning mb-2 rounded"
+          <div class="text-right mb-4">
+            <a class="btn btn-warning mt-md-4 mb-md-3 mb-lg-2 rounded"
                href="{% url 'about' %}">
               Страница о сайте
             </a><br>
-            <a class="btn btn-info mr-1 rounded"
+            <a class="btn btn-info mr-md-2 mr-lg-1 rounded"
               {% if user.is_authenticated %}
                href="{% url 'account' %}">
               {% else %}
@@ -36,7 +36,7 @@
               На помойку
             </a>
           </div>
-          <br>
+
         </div>
         <div class="col-md col-lg-12">
           <img class="w-100 p-0 rounded"
