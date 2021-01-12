@@ -137,36 +137,34 @@
     <div class="msg">
       {% for m in message %}
         {% if m.top == 'True' %}
-        <div id="msg_id"
-             name="{{ m.id }}"
-             class="msg_msgs rounded card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
-                                          {{ m.card_font_color_choice }} border-0">
-          <div class="card-header">
-            <div class="msg_text">
+        <a class="nav-link p-0"
+           href="/msg/{{m.id}}">
+          <div id="msg_id"
+               class="msg_msgs card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
+                                    {{ m.card_font_color_choice }} border-0">
+            <div class="card-header">
               {{ m.text|safe|linebreaks }}
             </div>
+            <div class="card-img">
+              {% if m.picture != 'none' %}
+                <img src="{{ m.picture }}">
+              {% endif %}
+              {% if m.picture_file != 'none' %}
+                <img src="/media/{{ m.picture_file }}">
+              {% endif %}
+            </div>
+            <div class="card-body">
+              <span class="card-text float-right">
+                Pined
+                {% if m.admin_news == True %} ✓ {% endif %}
+                {{ m.date|date:'H.i  d.m.Y' }}
+              </span>
+              <span class="card-title">
+                {{ m.user }}
+              </span>
+            </div>
           </div>
-          <div class="card-img">
-            {% if m.picture != 'none' %}
-              <img src="{{ m.picture }}">
-            {% endif %}
-            {% if m.picture_file != 'none' %}
-              <img src="/media/{{ m.picture_file }}">
-            {% endif %}
-          </div>
-          <div class="card-body">
-            <span class="card-text float-right">
-              {% if m.admin_news == True or m.user == 'Админ' %} ✓ {% endif %}
-              {{ m.date|date:'H.i  d.m.Y' }}
-            </span>
-            <span class="card-title">
-              {{ m.user }}
-            </span>
-            <span class="card-title">
-               - 3акреплено
-            </span>
-          </div>
-        </div>
+        </a>
         {% endif %}
       {% endfor %}
     </div>
@@ -176,7 +174,8 @@
     <div class="msg">
       {% for m in message %}
         {% if m.top == 'False' %}
-        <div>
+        <a class="nav-link p-0"
+           href="/msg/{{m.id}}">
           <div id="msg_id"
                class="msg_msgs card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
                                     {{ m.card_font_color_choice }} border-0">
@@ -201,7 +200,7 @@
               </span>
             </div>
           </div>
-        </div>
+        </a>
         {% endif %}
       {% endfor %}
     </div>

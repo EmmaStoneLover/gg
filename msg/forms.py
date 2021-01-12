@@ -3,7 +3,6 @@ from django.forms import ModelForm, TextInput, Select, Textarea, FileInput
 from django import forms
 
 class MessageForm(ModelForm):
-
     class Meta:
         model = Message
         fields = ['text', 'user', 'picture', 'picture_file', 'card_bg_color_choice', 'card_font_color_choice']

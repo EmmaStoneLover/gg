@@ -29,6 +29,7 @@ class Message(models.Model):
     top = models.CharField('Закрепить', blank=True, null=True, max_length=100, choices=PINNED_NEWS, default='False')
     admin_news = models.BooleanField('Новости сайта', default='False')
 
+
     def __str__(self):
         return 'id: ' + str(self.id) + ', ' + self.text
 

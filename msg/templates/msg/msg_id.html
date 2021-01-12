@@ -1,0 +1,67 @@
+{% extends 'wrapper.html' %}
+
+{% block title %} <title>ЬУЬ-Новости</title> {% endblock %}
+
+{% block static %} <link rel="stylesheet" href="/static/msg/css/msg.css"> {% endblock %}
+
+{% block js %}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/msg/js/msg.js"></script>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+	<div class="col-lg-2">
+		<a class="btn btn-success rounded mb-4 mr-2"
+			 href="/msg">
+			Назад
+		</a>
+		<a class="btn btn-warning rounded mb-4 mr-2"
+			 href="/admin/msg/message/{{msg.id}}/change">
+			Изменить
+		</a>
+		<a class="btn btn-danger rounded mb-4"
+			 href="/admin/msg/message/{{msg.id}}/delete">
+			Удалить
+		</a>
+	</div>
+
+	<div  class="col-lg-8">
+
+  	<div id="msg_id">
+      <div id="msg_id"
+           class="msg_msgs card {{ msg.card_bg_color_choice }} mb-4 p-0 rounded
+                                {{ msg.card_font_color_choice }} border-0">
+        <div class="card-header">
+          {{ msg.text|safe|linebreaks }}
+        </div>
+        <div class="card-img">
+          {% if msg.picture != 'none' %}
+            <img src="{{ msg.picture }}">
+          {% endif %}
+          {% if msg.picture_file != 'none' %}
+            <img src="/media/{{ msg.picture_file }}">
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <span class="card-text float-right">
+            {% if msg.admin_news == True %} ✓ {% endif %}
+            {{ msg.date|date:'H.i  d.m.Y' }}
+          </span>
+          <span class="card-title">
+            {{ msg.user }}
+          </span>
+        </div>
+      </div>
+		</div>
+
+	</div>
+
+</div>
+
+
+{% endblock %}
