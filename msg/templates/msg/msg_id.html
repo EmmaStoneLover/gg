@@ -14,9 +14,9 @@
 {% block content %}
 
 <div class="row">
-  <!-- {{ msg.card_bg_color_choice|json_script:"bg_color_id" }} -->
 
-	<div class="col-lg-7">
+{% for msg in message %}
+	<div class="{%if msg.picture_file != 'none' or msg.picture != 'none' %}col-lg-7{%else%}col-lg-5{%endif%}">
     <a class="btn btn-success rounded mb-md-4 mb-lg-3 mr-2"
        href="/msg">
       Назад
@@ -50,7 +50,7 @@
 
 	</div>
 
-  <div class="col-lg-4">
+  <div class="{%if msg.picture_file != 'none' or msg.picture != 'none'%}col-lg-5{%else%}col-lg-7{%endif%}">
     <a class="btn btn-warning rounded mb-md-4 mb-lg-2 mr-2"
        href="/admin/msg/message/{{msg.id}}/change">
       Изменить
@@ -61,27 +61,59 @@
     </a>
 
     <div class="mt-3">
-      <div class="">
-        <input class="form-control bg-dark text-white mb-4 rounded"
-             placeholder="Оставить комментарий"
-             type="text">
-        <div class="row justify-content-md-end justify-content-lg-start ml-1 mr-1">
-          <button class="btn btn-success rounded"
-                  type="button">
-            Отправить
-          </button>
+      {% if user.is_authenticated %}
+        <form method="post"
+              enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.text }}
+          <div class="row justify-content-md-end ml-1 mr-1">
+            <button class="btn btn-success rounded"
+                    type="submit">
+              Отправить
+            </button>
+          </div>
+        </form>
+      {% else %}
+        <div class="row">
+          <div class="col-5 pr-0">
+            <p class="mt-2">Чтобы написать комментарий,</p>
+          </div>
+          <div class="col-2 pl-0 pr-0">
+            <a class="btn btn-info mr-md-2 mr-lg-1 rounded"
+               href="{% url 'login' %}">
+              Войти
+            </a>
+          </div>
         </div>
-      </div>
+      {% endif %}
     </div>
-    <br>
+
+
     <div class="">
-      <h3>Комментарии(2):</h3>
-      <p>Соре, пока делаю</p>
+      <h3>Комментарии({{comments.count}})</h3>
+      {% if comments %}
+        {% for m in comments %}
+          <div class="mt-md-4 mt-lg-3 p-2 bg-dark text-white rounded">
+            <p class="ml-md-3 ml-lg-1 mt-md-2 mt-lg-1 mb-md-2 mb-lg-0">{{ m.text }}</p>
+            <hr class="m-lg-2">
+            <div class="row">
+              <div class="col-6">
+                <p class="ml-md-3 ml-lg-1 mb-0 pr-1">{{ m.user.first_name }}</p>
+              </div>
+              <div class="col-6">
+                <p class="mr-md-3 mr-lg-1 mb-md-2 mb-lg-0 text-right">{{ m.date|date:'H.i d.m.Y' }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>Пока нет ни одного комментария</p>
+      {% endif %}
     </div>
 
   </div>
 
 </div>
-
+{% endfor %}
 
 {% endblock %}

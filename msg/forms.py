@@ -1,4 +1,4 @@
-from .models import Message
+from .models import Message, Comment
 from django.forms import ModelForm, TextInput, Select, Textarea, FileInput
 from django import forms
 
@@ -34,3 +34,17 @@ class MessageForm(ModelForm):
                 'class': 'msg_input_text_and_bg_color custom-select text-white bg-dark rounded'
                 })
         }
+
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
+        widgets = {'text': TextInput(attrs={
+            'class': 'form-control bg-dark text-white border-white mb-4 rounded',
+            'placeholder': 'Оставить комментарияй'
+        })}
+
+    # def __init__(self, arg):
+    #     super(CommentForm, self).__init__()
+    #     self.arg = arg

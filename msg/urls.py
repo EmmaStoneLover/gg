@@ -6,5 +6,6 @@ from . import views
 urlpatterns = [
     path('', views.msg, name="msg"),
     path('privat', views.privat, name="privat"),
-    path('<int:pk>', views.MsgId.as_view(), name="msg_id"),
+    # path('<int:pk>', views.MsgId.as_view(), name="msg_id"),
+    path('<int:id>', views.msg_id, name="msg_id"),
 ]
