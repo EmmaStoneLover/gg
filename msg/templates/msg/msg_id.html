@@ -94,7 +94,7 @@
       {% if comments %}
         {% for m in comments %}
           <div class="mt-md-4 mt-lg-3 p-2 bg-dark text-white rounded">
-            <p class="ml-md-3 ml-lg-1 mt-md-2 mt-lg-1 mb-md-2 mb-lg-0">{{ m.text }}</p>
+            <p class="ml-md-3 ml-lg-1 mt-md-2 mt-lg-1 mb-md-2 mb-lg-0">{{ m.text|safe }}</p>
             <hr class="m-lg-2">
             <div class="row">
               <div class="col-6">
