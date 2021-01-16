@@ -36,11 +36,10 @@ def msg(request):
             error = 'Ошибка',
 
     form = MessageForm()
-
     data = {
         'message': message,
         'form': form,
-        'error': error
+        'error': error,
     }
     return render(request, 'msg/msg.html', data)
 
@@ -53,27 +52,21 @@ def privat(request):
     }
     return render(request, 'msg/privat.html', data)
 
-
-
 # class MsgId(DetailView):
 #     model = Message
 #     template_name = 'msg/msg_id.html'
 #     context_object_name = 'msg'
 
-
-
 def msg_id(request, id):
     message = Message.objects.filter(id=id).all()
-    print(message)
     comments = Comment.objects.filter(new=id).all()
-    print(comments)
     if request.method == "POST":
         form = CommentForm(request.POST, request.FILES)
         if form.is_valid():
             comment_form_save = form.save(commit=False)
             comment_form_save.new = Message.objects.get(id=id)
             comment_form_save.user = request.user
-             
+
             # text=form.cleaned_data.get("text")
             # user=form.cleaned_data.get("user")
             # print("Новый коммент: ")

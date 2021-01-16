@@ -17,6 +17,7 @@
 
   <!-- Добавить новость -->
   <div class="col-lg-5 jastify-lg-right">
+
     <div id="msg_title_and_input">
 
       <div id="msg_title"
@@ -192,6 +193,7 @@
             </div>
             <div class="card-body">
               <span class="card-text float-right">
+                {% if m.comment_set.count > 0 %} ✉{{m.comment_set.count}} {% endif %}
                 {% if m.admin_news == True %} ✓ {% endif %}
                 {{ m.date|date:'d.m.Y' }}
               </span>
