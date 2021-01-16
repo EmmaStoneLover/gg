@@ -75,7 +75,7 @@
         </form>
       {% else %}
         <div class="row">
-          <div class="col-5 pr-0">
+          <div class="col-7 pr-0">
             <p class="mt-2">Чтобы написать комментарий,</p>
           </div>
           <div class="col-2 pl-0 pr-0">
@@ -90,7 +90,7 @@
 
 
     <div class="">
-      <h3>Комментарии({{comments.count}})</h3>
+      <h3>Комментарии{% if comments.count > 0 %}({{comments.count}}){% endif %}</h3>
       {% if comments %}
         {% for m in comments %}
           <div class="mt-md-4 mt-lg-3 p-2 bg-dark text-white rounded">
@@ -113,7 +113,7 @@
 
   </div>
 
-</div>
 {% endfor %}
+</div>
 
 {% endblock %}

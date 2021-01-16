@@ -47,7 +47,7 @@ class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.id) + ', ' + str(self.new.id) + ', ' + self.text
+        return str(self.id) + ', ' + str(self.new.id) + ', ' + self.user.first_name + ', '+ self.text
 
     # Название модели в админке
     class Meta():

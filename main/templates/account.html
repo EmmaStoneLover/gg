@@ -13,7 +13,7 @@
 			<div class="col-lg-10">
 				<h1>Привет, {{ user.username }}</h1><br>
 				<h4>Какая-то инфа о тебе:</h4>
-				<p> Твои инициалы:  <big class="text-success">{{ user.last_name }} {{ user.first_name }}</big></p>
+				<p> Твои инициалы:  <big class="text-success">{{ user.first_name }} {{ user.last_name }}</big></p>
 				{% if user.email %}
 				<p>Твоя почта: <big class="text-success">{{ user.email|linebreaks }}</big></p>
 				{% endif %}
