@@ -1,8 +1,20 @@
-#app textarea {
-	font-size: 2rem;
-}
-#app textarea::placeholder {color: white;}
 
-#app select, #app textarea {
-	border: none;
+#input {
+	z-index: 1;
+	position: fixed; z-index: 1;
+	bottom: 0;
+	/* padding-left: 10px; */
+	left: 15px;;
+}
+#msg {
+
+}
+.footer {z-index: -1!important;}
+/* html {background: #272b30!important;} */
+@media (max-width:991px) {
+  #app input {font-size: 3rem;}
+	#app button {font-size: 3rem;}
+	#app input, #app button, #msg {
+		border-radius: 2.1rem;
+	}
 }

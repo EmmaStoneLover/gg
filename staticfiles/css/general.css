@@ -16,8 +16,8 @@ input:focus{outline:none;}
 .content, .header, .footer {
   box-sizing: border-box;
   width: 100%;
-  z-index: 0;
-}
+  z-index: 0;}
+.footer {z-index: 1;}
 .content {flex-grow: 1;}
 .header, .footer {box-shadow: 3px 3px 100px -20px black;}
 .footer {padding: 10px;}
@@ -43,7 +43,6 @@ input:focus{outline:none;}
   .navbar .navbar-brand {font-size: 3.5rem;}
   .container {max-width: 97%;}
   .footer {padding: 20px;}
-  .footer hr {max-width: 90%;}
   .rounded {border-radius: 0.8rem!important;}
   .rounded-right {border-top-right-radius: 0.8rem!important; border-bottom-right-radius: 0.8rem!important;}
   .rounded-left {border-top-left-radius: 0.8rem!important; border-bottom-left-radius: 0.8rem!important;}
