@@ -1,4 +1,4 @@
-from .models import Message, Comment
+from .models import Message, Comment, Privat
 from django.forms import ModelForm, TextInput, Select, Textarea, FileInput
 from django import forms
 
@@ -35,7 +35,6 @@ class MessageForm(ModelForm):
                 })
         }
 
-
 class CommentForm(ModelForm):
     class Meta:
         model = Comment
@@ -45,6 +44,11 @@ class CommentForm(ModelForm):
             'placeholder': 'Оставить комментарияй'
         })}
 
-    # def __init__(self, arg):
-    #     super(CommentForm, self).__init__()
-    #     self.arg = arg
+class PrivatForm(ModelForm):
+    class Meta:
+        model = Privat
+        fields = ['text']
+        widgets = {'text': TextInput(attrs={
+            'class': 'form-control bg-dark text-white border-white pl-4',
+            'placeholder': 'Написать'
+        })}

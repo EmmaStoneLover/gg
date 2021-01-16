@@ -10,9 +10,9 @@
 			<li class="nav-item">
         <a class="nav-link" href="{% url 'msg' %}">Помойка</a>
       </li>
-			{% if user.is_authenticated and user.username == "volkovmb" %}
+			{% if user.is_authenticated and user.username == "volkovmb" or user.is_authenticated and user.username == "zenkinada" %}
 				<li class="nav-item">
-        	<a class="nav-link" href="{% url 'privat' %}">Приват</a>
+        	<a class="nav-link" href="{% url 'privat' %}">Личка</a>
       	</li>
 			{% endif %}
     </ul>

@@ -1,0 +1,51 @@
+{% extends 'wrapper.html' %}
+
+{% block title %} <title>ЬУЬ-Новости</title> {% endblock %}
+
+{% block static %} <link rel="stylesheet" href="/static/msg/css/privat.css"> {% endblock %}
+
+{% block js %}
+
+  <script src="/static/msg/js/vue.js"></script>
+  <script type="text/javascript" src="/static/msg/js/privat.js"></script>
+
+{% endblock %}
+
+{% block content %}
+
+{{ smth|json_script:"smth" }}
+
+ <div id="app">
+  <h1 :class="[text_color]">Вставить текст</h1>
+	<textarea @input="text=$event.target.value"
+				 :class="[bg_color, text_color]"
+				 class="form-control rounded mb-3"
+         rows="5">
+	</textarea>
+  <h1 :class="text_color">
+    [[ smthing ]]
+  </h1>
+	<select @input="Change_bg($event.target.value)"
+					class="mb-3 custom-select text-white bg-dark rounded">
+	  <option value="bg-dark">Темный фон</option>
+	  <option value="bg-light">Светлый фон</option>
+	  <option value="bg-success">Зеленый фон</option>
+	  <option value="bg-danger">Красный фон</option>
+	  <option value="bg-warning">Желтый фон</option>
+	  <option value="bg-info">Голубой фон</option>
+	</select>
+	<select @input="Change_text($event.target.value)"
+					class="mb-3 custom-select text-white bg-dark rounded">
+	  <option value="text-white">Белый текст</option>
+	  <option value="text-dark">Темный текст</option>
+	  <option value="text-primary">Синий текст</option>
+	  <option value="text-secondary">Серый текст</option>
+	  <option value="text-warning">Желтый текст</option>
+	  <option value="text-danger">Красный текст</option>
+	  <option value="text-success">Зеленый цвет</option>
+	  <option value="text-info">Голубой цвет</option>
+
+	</select>
+ </div>
+
+{% endblock %}

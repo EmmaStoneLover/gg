@@ -30,10 +30,8 @@ class Message(models.Model):
     top = models.CharField('Закрепить', blank=True, null=True, max_length=100, choices=PINNED_NEWS, default='False')
     admin_news = models.BooleanField('Новости сайта', default='False')
 
-
     def __str__(self):
         return 'id: ' + str(self.id) + ', ' + self.text
-
     # Название модели в админке
     class Meta():
         verbose_name = 'Новость'
@@ -48,8 +46,20 @@ class Comment(models.Model):
 
     def __str__(self):
         return str(self.id) + ', ' + str(self.new.id) + ', ' + self.user.first_name + ', '+ self.text
-
     # Название модели в админке
     class Meta():
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
+
+
+class Privat(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.CharField('Текст', max_length=500)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.id) + ', ' + self.user.first_name + ', '+ self.text
+    # Название модели в админке
+    class Meta():
+        verbose_name = 'Приватное'
+        verbose_name_plural = 'Приватные сообщения'

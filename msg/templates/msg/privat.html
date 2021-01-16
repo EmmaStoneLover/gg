@@ -1,51 +1,77 @@
 {% extends 'wrapper.html' %}
 
-{% block title %} <title>ЬУЬ-Новости</title> {% endblock %}
+{% block title %} <title>Личные сообщения</title> {% endblock %}
 
-{% block static %} <link rel="stylesheet" href="/static/msg/css/privat.css"> {% endblock %}
+{% block static %}
+  <link rel="stylesheet" href="/static/msg/css/privat.css">
+{% endblock %}
 
 {% block js %}
-
   <script src="/static/msg/js/vue.js"></script>
-  <script type="text/javascript" src="/static/msg/js/privat.js"></script>
-
+  <script type="text/javascript"
+          src="/static/msg/js/privat.js">
+  </script>
 {% endblock %}
 
 {% block content %}
 
+{% if user.is_authenticated and user.username == 'volkovmb' or user.is_authenticated and user.username == 'zenkinada' %}
 {{ smth|json_script:"smth" }}
 
  <div id="app">
-  <h1 :class="[text_color]">Вставить текст</h1>
-	<textarea @input="text=$event.target.value"
-				 :class="[bg_color, text_color]"
-				 class="form-control rounded mb-3"
-         rows="5">
-	</textarea>
-  <h1 :class="text_color">
-    [[ smthing ]]
-  </h1>
-	<select @input="Change_bg($event.target.value)"
-					class="mb-3 custom-select text-white bg-dark rounded">
-	  <option value="bg-dark">Темный фон</option>
-	  <option value="bg-light">Светлый фон</option>
-	  <option value="bg-success">Зеленый фон</option>
-	  <option value="bg-danger">Красный фон</option>
-	  <option value="bg-warning">Желтый фон</option>
-	  <option value="bg-info">Голубой фон</option>
-	</select>
-	<select @input="Change_text($event.target.value)"
-					class="mb-3 custom-select text-white bg-dark rounded">
-	  <option value="text-white">Белый текст</option>
-	  <option value="text-dark">Темный текст</option>
-	  <option value="text-primary">Синий текст</option>
-	  <option value="text-secondary">Серый текст</option>
-	  <option value="text-warning">Желтый текст</option>
-	  <option value="text-danger">Красный текст</option>
-	  <option value="text-success">Зеленый цвет</option>
-	  <option value="text-info">Голубой цвет</option>
 
-	</select>
+  <form id="input"
+        class="row w-100 p-5 bg-dark"
+        method="post">
+    <div class="col-11">
+      {% csrf_token %}
+      {{form.text}}
+    </div>
+    <div class="col-1 p-0 m-0">
+      <button class="btn btn-info pr-4 pl-4"
+              type="submit">
+        >
+      </button>
+    </div>
+    <br><br><br>
+  </form>
+  <br>
+  <div class="text-center">
+    <h2>Сообщения для Даши и Миши</h2>
+  </div>
+  <br>
+  <div class="">
+    {% for msg in messages %}
+
+      <div class="row mb-3
+          {% if user.username == msg.user.username %}
+            justify-content-end
+          {% endif %}">
+        <div id="msg"
+             class="col-11 p-3 pl-4 pr-4 text-white
+             {% if user.username == msg.user.username %} bg-info
+             {% else %} bg-dark
+             {% endif %}">
+          <p class="">{{ msg.text|safe }}</p>
+          <p class=" text-right mb-0">
+            {% if msg.user.first_name == 'Админ'%} Миша,
+            {% else %} {{msg.user.first_name}},
+            {% endif %}
+            {{ msg.date|date:'H.i d.m.Y' }}
+          </p>
+        </div>
+      </div>
+
+
+    {% endfor %}
+  </div>
  </div>
+
+
+{% else %}
+  <div class="row justify-content-center">
+    <h1>Идите нахуй, это не вам не доступно</h1>
+  </div>
+{% endif %}
 
 {% endblock %}
