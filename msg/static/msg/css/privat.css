@@ -12,9 +12,18 @@
 .footer {z-index: -1!important;}
 /* html {background: #272b30!important;} */
 @media (max-width:991px) {
-  #app input {font-size: 3rem;}
+	#app input {font-size: 3rem;
+		}
 	#app button {font-size: 3rem;}
 	#app input, #app button, #msg {
 		border-radius: 2.1rem;
+	}
+	.footer {z-index: -1!important;
+		padding-bottom: 230px;
+	}
+}
+@media (min-width:991px) {
+	#app input, #app button, #msg {
+		border-radius: 2rem;
 	}
 }
