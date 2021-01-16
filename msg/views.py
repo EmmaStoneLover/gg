@@ -3,6 +3,7 @@ from .models import Message, Comment
 # from django.views.generic import ListView, DetailView
 from .forms import MessageForm, CommentForm
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 def msg(request):
     message = Message.objects.order_by('-id').all()
@@ -29,6 +30,7 @@ def msg(request):
             if request.user.is_authenticated:
                 new.user = request.user.first_name
                 new.admin_news = True
+            # new.date = timezone.now()
             new.save()
 
             return redirect('/msg')
@@ -67,10 +69,9 @@ def msg_id(request, id):
             comment_form_save.new = Message.objects.get(id=id)
             comment_form_save.user = request.user
 
-            # text=form.cleaned_data.get("text")
-            # user=form.cleaned_data.get("user")
-            # print("Новый коммент: ")
-            # print("user: " + user + ", текст: " + text)
+            text=form.cleaned_data.get("text")
+            print("\nНовый коммент: ")
+            print("текст: " + text + '\n')
 
             comment_form_save.save()
     form = CommentForm()

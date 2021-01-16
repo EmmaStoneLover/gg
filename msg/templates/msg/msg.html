@@ -193,8 +193,8 @@
             </div>
             <div class="card-body">
               <span class="card-text float-right">
-                {% if m.comment_set.count > 0 %} ✉{{m.comment_set.count}} {% endif %}
                 {% if m.admin_news == True %} ✓ {% endif %}
+                {% if m.comment_set.count > 0 %} ✉{{m.comment_set.count}} {% endif %}
                 {{ m.date|date:'d.m.Y' }}
               </span>
               <span class="card-title">

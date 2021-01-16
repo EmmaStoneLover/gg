@@ -90,7 +90,7 @@
 
 
     <div class="">
-      <h3>Комментарии{% if comments.count > 0 %}({{comments.count}}){% endif %}</h3>
+      <h3>✉{% if comments.count > 0 %}{{comments.count}}{% endif %}</h3>
       {% if comments %}
         {% for m in comments %}
           <div class="mt-md-4 mt-lg-3 p-2 bg-dark text-white rounded">
