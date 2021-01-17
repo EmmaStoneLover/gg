@@ -2,7 +2,10 @@
 
 {% block title %} <title>ЬУЬ-Новости</title> {% endblock %}
 
-{% block static %} <link rel="stylesheet" href="/static/msg/css/msg.css"> {% endblock %}
+{% block static %}
+  <link  rel="stylesheet" href="/static/msg/css/msg.css">
+
+{% endblock %}
 
 {% block js %}
 
@@ -43,7 +46,7 @@
       <!-- Input блок -->
       <div class="row">
         <div id="msg_input"
-             class="msg_input bg-dark mb-5 rounded">
+             class="msg_input bg-dark mb-4 rounded">
           <form class="card-header"
                 method="post"
                 enctype="multipart/form-data">
@@ -107,7 +110,7 @@
     </div>
   </div>
 
-  <div class="col-lg-7">
+  <div class="col-lg-7 pl-lg-0">
 
     <!-- Поиск по новостям -->
     <div class="input-group">
@@ -158,6 +161,9 @@
               <span class="card-text float-right">
                 Pined
                 {% if m.admin_news == True %} ✓ {% endif %}
+                {% if m.comment_set.count > 0 %}
+                {{m.comment_set.count}}cum
+                {% endif %}
                 {{ m.date|date:'d.m.Y' }}
               </span>
               <span class="card-title">
@@ -194,7 +200,10 @@
             <div class="card-body">
               <span class="card-text float-right">
                 {% if m.admin_news == True %} ✓ {% endif %}
-                {% if m.comment_set.count > 0 %} ✉{{m.comment_set.count}} {% endif %}
+                {% if m.comment_set.count > 0 %}
+                {{m.comment_set.count}}cum
+                {% endif %}
+                <!-- ✉ -->
                 {{ m.date|date:'d.m.Y' }}
               </span>
               <span class="card-title">

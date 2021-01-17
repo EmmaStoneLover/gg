@@ -10,8 +10,10 @@
 	<br>
 	<div class="login_content">
 		<div class="row">
-			<div class="col-lg-10">
+			<div class="col-lg-4">
 				<h1>Привет, {{ user.username }}</h1><br>
+			</div>
+			<div class="col-lg-6 mb-4">
 				<h4>Какая-то инфа о тебе:</h4>
 				<p> Твои инициалы:  <big class="text-success">{{ user.first_name }} {{ user.last_name }}</big></p>
 				{% if user.email %}
@@ -19,10 +21,13 @@
 				{% endif %}
 			</div>
 			<div class="col-lg-2 mb-4"><br>
-				<a class="btn btn-success mr-md-3 rounded" href="/admin">Админка</a>
+				{% if request.user.username == 'volkovmb' %}
+					<a class="btn btn-success mr-md-3 rounded" href="/admin">Админка</a>
+				{% endif %}
 				<a class="btn btn-danger rounded" href="{% url 'logout' %}">Выйти</a>
 			</div>
 		</div>
+		<br>
 	</div>
 
 	{% else %}

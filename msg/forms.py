@@ -40,7 +40,7 @@ class CommentForm(ModelForm):
         model = Comment
         fields = ['text']
         widgets = {'text': TextInput(attrs={
-            'class': 'form-control bg-dark text-white border-white mb-4 rounded',
+            'class': 'form-control bg-dark text-white p-md-3 mb-4 rounded',
             'placeholder': 'Оставить комментарияй'
         })}
 
@@ -49,6 +49,6 @@ class PrivatForm(ModelForm):
         model = Privat
         fields = ['text']
         widgets = {'text': TextInput(attrs={
-            'class': 'form-control bg-dark text-white border-white pl-4',
+            'class': 'form-control bg-dark text-white pl-4',
             'placeholder': 'Написать'
         })}
