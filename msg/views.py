@@ -55,6 +55,7 @@ def msg_id(request, id):
             print("\nНовый коммент: ")
             print("текст: " + text + '\n')
             comment_form_save.save()
+            return redirect('/msg/'+str(id))
     form = CommentForm()
     data = {
         'message': message,
