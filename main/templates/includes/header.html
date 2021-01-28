@@ -1,16 +1,13 @@
 {% block header %}
 <div class="header bg-dark">
 <div class="container navbar top navbar-expand navbar-dark">
-
 	<a class="navbar-brand" href="{% url 'home' %}">Kotiki Ashotiki</a>
-
   <div class="collapse navbar-collapse" id="navbarColor02">
-
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
         <a class="nav-link" href="{% url 'msg' %}">Помойка</a>
       </li>
-			{% if user.is_authenticated and user.username == "volkovmb" or user.is_authenticated and user.username == "zenkinada" %}
+			{% if user.username == "volkovmb" or user.username == "zenkinada" %}
 				<li class="nav-item">
         	<a class="nav-link" href="{% url 'privat' %}">Личка</a>
       	</li>
@@ -22,15 +19,20 @@
 					<a 	id="user_name"
 							name="{{ user.first_name }}"
 							class="nav-link"
-							href="{% url 'account' %}">{{ user.first_name }}</a>
+							href="{% url 'account' %}">
+						{{ user.first_name }}
+					</a>
 				{% else %}
-					<a class="nav-link" href="{% url 'login' %}">Войти</a>
+					<a class="nav-link"
+							id="user_name"
+							name="Войти"
+							href="{% url 'login' %}">
+						Войти
+					</a>
 				{% endif %}
 			</li>
 		</ul>
-
   </div>
-
 </div>
 </div>
 {% endblock %}

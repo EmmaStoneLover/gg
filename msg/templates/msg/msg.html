@@ -1,137 +1,170 @@
 {% extends 'wrapper.html' %}
-
-{% block title %} <title>ЬУЬ-Новости</title> {% endblock %}
-
+{% block title %}
+  <title>ЬУЬ</title>
+{% endblock %}
 {% block static %}
   <link  rel="stylesheet" href="/static/msg/css/msg.css">
-
 {% endblock %}
-
 {% block js %}
-
+  <script src="/static/msg/js/vue.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="/static/msg/js/msg.js"></script>
-
 {% endblock %}
-
 {% block content %}
-
 <div class="row">
-
-  <!-- Добавить новость -->
-  <div class="col-lg-5 jastify-lg-right">
-
-    <div id="msg_title_and_input">
-
+  <div class="col-xl-5">
+    <div id="msg_title_and_input"
+         class="">
       <div id="msg_title"
            class="row justify-content-between">
         <div class="col-8">
             <h1 class="align-left mb-4">
             Помойка
           </h1>
-      </div>
-      <div class="col-4">
-          <div class="row justify-content-end pr-3">
-            <button type="button" id="msg_input_show_button"
-                    class="btn btn-success rounded">
+        </div>
+        <div class="col-4">
+          <div class="d-flex justify-content-end">
+            <button id="msg_input_show_button"
+                    @click="msg_input = !msg_input"
+                    class="btn btn-success pl-4 pr-4 rounded"
+                    type="button">
                 Добавить
-            </button>
-            <button type="button" id="msg_input_hide_button"
-                    class="btn btn-success rounded">
-                Закрыть
             </button>
           </div>
         </div>
       </div>
-      <!-- Input блок -->
-      <div class="row">
-        <div id="msg_input"
-             class="msg_input bg-dark mb-4 rounded">
-          <form class="card-header"
-                method="post"
-                enctype="multipart/form-data">
-            <div class="mb-3">
-              <h5>Добавить ЬУЬ новость</h5>
-            </div>
-            {% csrf_token %}
-            <span>{{ error }}</span>
-            {{ form.text }}<br>
-            {% if user.is_authenticated %}
-              <div id="msg_input_user_hide">
-                {{ form.user }}<br>
+      <div id="msg_input"
+           :class="{'d-md-block': !msg_input, 'd-xl-none': msg_input}"
+           class="d-md-none d-xl-block bg-dark text-white mb-4 rounded">
+        <form class="card-header"
+              method="post"
+              enctype="multipart/form-data">
+          <div class="ml-md-3 ml-xl-2 mt-md-3 mb-md-4 mt-xl-1 mb-xl-1">
+            <h4>Добавить новость</h4>
+          </div>
+          {% csrf_token %}
+          <span>{{ error }}</span>
+          <div class="mb-md-4 mb-lg-3">
+            {{ form.text }}
+          </div>
+          <div id="msg_input_user_hide"
+                style="display: none;">
+            {{ form.user }}<br>
+          </div>
+          <div id="msg_img_add_div">
+            <a id="msg_input_add_hide"
+                    @click="msg_input_adds = !msg_input_adds"
+                    type="button"
+                    class="msg_input_button text-white decoration-none p-1
+                          mb-md-2 pl-md-4 pl-lg-2 pr-md-4 pr-lg-3 rounded">
+              <svg fill="currentColor" class="bi bi-gear mr-1" viewBox="0 0 16 16">
+                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0
+                0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873
+                0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873
+                0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873
+                0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873
+                0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0
+                1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1
+                .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0
+                1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0
+                0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873
+                1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873
+                0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0
+                0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693
+                1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0
+                0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0
+                0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0
+                0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0
+                2.692-1.115l.094-.319z"/>
+              </svg>
+              Дополнительно
+            </a>
+            <div id="msg_input_add_hide_div"
+                 :class="{'d-block': !msg_input_adds}"
+                 class="d-none z-index-property">
+              <div class="form-group mt-md-3 mt-lg-1">
+                {{ form.picture_file }}
+                <label for="msg_input_picture_file"
+                       class="msg_input_text_and_bg_color pl-md-4 pl-lg-3
+                       form-control text-white bg-dark rounded">
+                  Загрузить файл
+                  <svg fill="currentColor" class="bi bi-image ml-md-4 ml-lg-2" viewBox="0 0 16 16">
+                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                    <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2
+                    0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1
+                    1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5
+                    0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                  </svg>
+                </label>
               </div>
-            {% else %}
-                {{ form.user }}<br>
-            {% endif %}
-            <div id="msg_img_add_div">
-              <button id="msg_input_add_hide"
-                      type="button"
-                      class="msg_input_button btn-sm btn-success mb-2 rounded">
-                Дополнительно...
+              <div class="bs-component">
+                <div class="form-group mt-md-3 mt-lg-1">
+                  {{ form.card_bg_color_choice }}
+                </div>
+                <div class="form-group mt-md-3 mt-lg-1 mb-md-2 mb-lg-1">
+                  {{ form.card_font_color_choice }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-between mb-md-3 mb-lg-0">
+            <div class="col-5">
+              <button id="msg_input_button"
+                      type="submit"
+                      class="msg_input_button btn btn-success mt-md-3 mt-lg-2
+                      pl-md-4 pr-md-4 pl-lg-3 pr-lg-3 rounded">
+                Отправить
               </button>
-              <div id="msg_input_add_hide_div"
-                   class="invisible position-absolute z-index-property">
-                <div class="form-group mt-3">
-                  {{ form.picture_file }}
-                  <label for="msg_input_picture_file"
-                         class="msg_input_text_and_bg_color form-control text-white bg-dark rounded">
-                    Загрузить файл
-                  </label>
-                </div>
-                <div class="bs-component">
-                  <div class="form-group mt-3">
-                    {{ form.card_bg_color_choice }}
-                  </div>
-                  <div class="form-group mt-3">
-                    {{ form.card_font_color_choice }}
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="row justify-content-between">
-              <div class="col-5">
-                <button id="msg_input_button"
-                        type="submit"
-                        class="msg_input_button btn btn-success mt-2 mb-2 rounded">
-                  Отправить
-                </button>
-              </div>
-              <div class="col-3 d-sm-none d-lg-block">
-                <a class="nav-link text-success mt-3 mb-0"
-                   href="#">
-                  вверх
-                </a>
-              </div>
+            <div class="col-3 d-sm-none d-lg-block">
+              <a class="nav-link text-success mt-3 mb-0 pb-lg-0"
+                 href="#">
+                вверх
+              </a>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
-
     </div>
   </div>
 
-  <div class="col-lg-7 pl-lg-0">
-
+  <div class="col-xl-7">
     <!-- Поиск по новостям -->
-    <div class="input-group">
+    <div id="msg_search" class="input-group">
+      <button class="input-group-text bg-dark text-white pl-md-4 pr-md-4 mb-4
+                  pl-lg-3 pr-lg-3 border-0 rounded-left"
+            id="msg_search_input_button_clear" type="button">
+        <svg fill="currentColor"
+             class="bi bi-backspace" viewBox="0 0 16 16">
+        <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5
+              0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39
+        8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
+        <path d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0
+              1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603
+              1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1
+              1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z"/>
+        </svg>
+      </button>
       <input id="msg_search_input"
-             class="msg_search form-control bg-dark text-white mb-4 border-0 rounded-left"
+             class="msg_search form-control bg-dark text-white mb-4 border-0"
              aria-describedby="button-addon4"
              placeholder="Поиск"
              type="text">
-      <div class="input-group-append">
-        <button id="msg_search_input_button_clear"
-                class="btn-dark text-secondary mb-4 border-0"
-                type="button">
-          Очистить
-        </button>
-        <button id="msg_search_input_button_find"
-                type="button"
-                class="btn-dark text-secondary bg-dark mb-4 border-0 rounded-right">
-          Найти
-        </button>
-      </div>
+      <button class="input-group-text bg-dark text-white pl-md-5 pr-md-4
+                  pl-lg-4 pr-lg-3 mb-4 border-0 rounded-right"
+            @click="F"
+            id="msg_search_input_button_find" type="button">
+        <svg fill="currentColor"
+             class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397
+              1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0
+              1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12
+              6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </button>
     </div>
+
     <p id="msg_not_found"
        style="display: none;">
       Ничего не найдено
@@ -201,9 +234,15 @@
               <span class="card-text float-right">
                 {% if m.admin_news == True %} ✓ {% endif %}
                 {% if m.comment_set.count > 0 %}
-                {{m.comment_set.count}}cum
+                <svg xmlns="/static/msg/icons/chat-right.svg"
+                     fill="currentColor" class="bi bi-chat-right" viewBox="0 0 16 16">
+                  <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0
+                    1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2
+                    2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2
+                    2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+                </svg>
+                {{m.comment_set.count}}
                 {% endif %}
-                <!-- ✉ -->
                 {{ m.date|date:'d.m.Y' }}
               </span>
               <span class="card-title">

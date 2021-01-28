@@ -5,10 +5,8 @@
 	width: 100%;
 	border: none;
 }
-
 @media (min-width:992px) {
 #login_input {max-width: 500px;}
-.login_content .btn-success {margin-bottom: 5px;}
 .login_password input {
 	border-radius: 0.5rem!important;
 	}

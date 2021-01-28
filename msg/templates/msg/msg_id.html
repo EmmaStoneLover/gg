@@ -1,23 +1,27 @@
 {% extends 'wrapper.html' %}
 
-{% block title %} <title>ЬУЬ-Новости</title> {% endblock %}
+{% block title %} <title>ЬУЬ</title> {% endblock %}
 
-{% block static %} <link rel="stylesheet" href="/static/msg/css/msg.css"> {% endblock %}
+{% block static %}
+  <link rel="stylesheet" href="/static/msg/css/msg.css">
+{% endblock %}
 
 {% block js %}
-
   <script src="/static/msg/js/vue.js"></script>
-  <script type="text/javascript" src="/static/msg/js/msg_id.js"></script>
-
+  <script type="text/javascript"
+          src="/static/msg/js/msg_id.js">
+  </script>
 {% endblock %}
 
 {% block content %}
 
-<div id="app" class="row">
+<div class="row">
 
 {% for msg in message %}
-	<div class="{%if msg.picture_file != 'none' or msg.picture != 'none' %}col-lg-7{%else%}col-lg-5{%endif%}">
-    <a class="btn btn-success rounded mb-md-4 mb-lg-3 mr-2"
+	<div class="{%if msg.picture_file != 'none' or msg.picture != 'none' %}
+              col-lg-7{%else%}col-lg-5{%endif%}">
+    <a class="btn btn-success rounded mb-md-4 mb-lg-3
+              pl-md-4 pr-md-4 pl-lg-3 pr-lg-3"
        href="/msg">
       Назад
     </a>
@@ -50,7 +54,8 @@
 
 	</div>
 
-  <div class="{%if msg.picture_file != 'none' or msg.picture != 'none'%}col-lg-5{%else%}col-lg-7{%endif%}">
+  <div class="{%if msg.picture_file != 'none' or msg.picture != 'none'%}
+              col-lg-5{%else%}col-lg-7{%endif%}">
     {% if request.user.username == 'volkovmb' %}
     <a class="btn btn-warning rounded mb-md-4 mb-lg-2 mr-2"
        href="/admin/msg/message/{{msg.id}}/change">
@@ -69,7 +74,7 @@
           {% csrf_token %}
           {{ form.text }}
           <div class="row justify-content-md-end ml-1 mr-1">
-            <button class="btn btn-success rounded"
+            <button class="col-md-4 col-lg-2 btn btn-success rounded"
                     type="submit">
               Отправить
             </button>
@@ -91,25 +96,33 @@
     </div>
 
 
-    <div class="">
-      <h3>Комментарии{% if comments.count > 0 %}({{comments.count}}){% endif %}</h3>
+    <div id="comments">
+      <h3>Комментарии:
+        {% if comments.count > 0 %} {{comments.count}}{% endif %}
+      </h3>
       {% if comments %}
         {% for m in comments %}
           <div class="mt-md-4 mt-lg-3 p-2 bg-dark text-white rounded">
-            <p class="ml-md-3 ml-lg-1 mt-md-2 mt-lg-1 mb-md-2 mb-lg-0">{{ m.text|safe }}</p>
+            <p class="ml-md-3 ml-lg-1 mt-md-2 mt-lg-1 mb-md-2 mb-lg-0">
+              {{ m.text|safe }}
+            </p>
             <hr class="m-lg-2">
             <div class="row">
               <div class="col-6">
-                <p class="ml-md-3 ml-lg-1 mb-0 pr-1">{{ m.user.first_name }}</p>
+                <p class="ml-md-3 ml-lg-1 mb-0 pr-1">
+                  {{ m.user.first_name }}
+                </p>
               </div>
               <div class="col-6">
-                <p class="mr-md-3 mr-lg-1 mb-md-2 mb-lg-0 text-right">{{ m.date|date:'H.i d.m.Y' }}</p>
+                <p class="mr-md-3 mr-lg-1 mb-md-2 mb-lg-0 text-right">
+                  {{ m.date|date:'H.i d.m.Y' }}
+                </p>
               </div>
             </div>
           </div>
         {% endfor %}
       {% else %}
-        <p>Пока нет ни одного комментария</p>
+        <p>Комментариев не будет, они приняли Ислам</p>
       {% endif %}
     </div>
 

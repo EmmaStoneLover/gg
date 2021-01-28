@@ -12,7 +12,7 @@ body {
 button:focus{outline:none;}
 input:focus{outline:none;}
 .footer hr {background: grey;}
-
+a {text-decoration: none;}
 .content, .header, .footer {
   box-sizing: border-box;
   width: 100%;
@@ -20,7 +20,6 @@ input:focus{outline:none;}
 .footer {z-index: 1;}
 .content {flex-grow: 1;}
 .header, .footer {box-shadow: 3px 3px 100px -20px black;}
-.footer {padding: 10px;}
 
 .rounded {border-radius: 0.4rem!important;}
 .rounded-right {border-top-right-radius: 0.4rem!important; border-bottom-right-radius: 0.4rem!important;}
@@ -35,14 +34,13 @@ input:focus{outline:none;}
   h5{font-size: 2.6rem;}
   p{font-size: 2.7rem;}
   a {font-size: 2.5rem;}
-  .content {margin-top: 25px;}
+  .content {margin-top: 30px;}
   .btn {font-size: 2.8rem;}
   .btn-lg {font-size: 3rem;}
   .btn-sm {font-size: 2.5rem;}
   .navbar {font-size: 2.3rem; padding: 20px; padding-left: 20px;}
   .navbar .navbar-brand {font-size: 3.5rem;}
   .container {max-width: 97%;}
-  .footer {padding: 20px;}
   .rounded {border-radius: 0.8rem!important;}
   .rounded-right {border-top-right-radius: 0.8rem!important; border-bottom-right-radius: 0.8rem!important;}
   .rounded-left {border-top-left-radius: 0.8rem!important; border-bottom-left-radius: 0.8rem!important;}

@@ -1,33 +1,38 @@
 {% extends 'wrapper.html' %}
-
-{% block title %} <title>О сайте</title> {% endblock %}
-
-{% block static %} <link rel="stylesheet" href="/static/main/css/home.css"> {% endblock %}
-
+{% block title %}
+  <title>О сайте</title>
+{% endblock %}
+{% block static %}
+  <link rel="stylesheet" href="/static/main/css/home.css">
+{% endblock %}
 
 {% block content %}
-  <div class="row justify-content-between mr-3">
+  <div class="row justify-content-between mr-md-3">
     <div class="col-9">
       <h1>В чем проблема?</h1>
     </div>
-    <div class="col-2">
-      <a class="btn btn-danger mb-2 rounded"
+    <div class="col-3 row justify-content-end">
+      <a class="btn btn-danger rounded
+                pl-md-4 pr-md-4 pl-lg-3 pr-lg-3"
          href="{% url 'home' %}">
         Назад
       </a>
     </div>
   </div>
   <br>
-  <div class="row">
+  <div class="row g-lg-3 g-xl-5">
     <div class="col-lg">
       <h5>Этот сайт перезагружается каждые 30 мин</h5>
       <img class="w-100 mt-3 mb-3 rounded" src="/media/main/3.jpg">
-      <h5>Из-за этого, записи остаются, но загруженые картинки слетают(</h5><br>
+      <h5>Из-за этого, записи остаются, но загруженые картинки слетают(</h5>
+      <br>
     </div>
     <div class="col-lg">
-      <h5>Всё потому что у меня нет денег на хостинг, <br> хоть какой-то нормальный.</h5>
+      <h5>
+        Всё потому что у меня нет денег на хостинг, <br> хоть какой-то нормальный.
+      </h5>
       <img class="w-100 mt-4 mb-2 rounded" src="/media/main/6.jpg">
-      <h4>Памянем</h4>
+      <h5>Памянем</h5>
     </div>
   </div>
 

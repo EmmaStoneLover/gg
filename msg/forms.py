@@ -27,11 +27,11 @@ class MessageForm(ModelForm):
                 }),
             'card_bg_color_choice': Select(attrs={
                 'id': 'id_card_bg_color_choice',
-                'class': 'msg_input_text_and_bg_color custom-select text-white bg-dark rounded'
+                'class': 'msg_input_text_and_bg_color form-select text-white bg-dark pl-md-4 pl-lg-3 rounded'
                 }),
             'card_font_color_choice': Select(attrs={
                 'id': 'id_card_font_color_choice',
-                'class': 'msg_input_text_and_bg_color custom-select text-white bg-dark rounded'
+                'class': 'msg_input_text_and_bg_color form-select text-white bg-dark pl-md-4 pl-lg-3 rounded'
                 })
         }
 
@@ -40,7 +40,7 @@ class CommentForm(ModelForm):
         model = Comment
         fields = ['text']
         widgets = {'text': TextInput(attrs={
-            'class': 'form-control bg-dark text-white p-md-3 mb-4 rounded',
+            'class': 'form-control bg-dark text-white p-md-3 p-lg-2 mb-md-4 mb-lg-2 rounded',
             'placeholder': 'Оставить комментарияй'
         })}
 

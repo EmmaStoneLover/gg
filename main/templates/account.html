@@ -1,8 +1,10 @@
 {% extends 'wrapper.html' %}
-
-{% block title %} <title>Вход в аккаунт</title> {% endblock %}
-
-{% block static %} <link rel="stylesheet" href="/static/css/login.css"> {% endblock %}
+{% block title %}
+	<title>Вход в аккаунт</title>
+{% endblock %}
+{% block static %}
+	<link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -15,34 +17,45 @@
 			</div>
 			<div class="col-lg-6 mb-4">
 				<h4>Какая-то инфа о тебе:</h4>
-				<p> Твои инициалы:  <big class="text-success">{{ user.first_name }} {{ user.last_name }}</big></p>
+				<p> Твои инициалы:
+					<big class="text-success">
+						{{ user.first_name }} {{ user.last_name }}
+					</big>
+				</p>
 				{% if user.email %}
-				<p>Твоя почта: <big class="text-success">{{ user.email|linebreaks }}</big></p>
+				<p>Твоя почта:
+					<big class="text-success">
+						{{ user.email|linebreaks }}
+					</big>
+				</p>
 				{% endif %}
 			</div>
 			<div class="col-lg-2 mb-4"><br>
 				{% if request.user.username == 'volkovmb' %}
-					<a class="btn btn-success mr-md-3 rounded" href="/admin">Админка</a>
+					<a class="btn btn-success mr-3 mb-lg-3 rounded
+										pl-md-4 pr-md-4 pl-lg-3 pr-lg-3"
+							href="/admin">
+						Админка
+					</a>
 				{% endif %}
-				<a class="btn btn-danger rounded" href="{% url 'logout' %}">Выйти</a>
+				<a class="btn btn-danger mb-lg-3
+									pl-md-4 pr-md-4 pl-lg-3 pr-lg-3 rounded"
+						href="{% url 'logout' %}">
+					Выйти
+				</a>
 			</div>
 		</div>
 		<br>
 	</div>
-
 	{% else %}
-
 	<div class="row justify-content-center">
-
 			<h3>Ты не вошел, тебе </h3>
 			<span>
-				<a class="btn btn-info ml-2" href="{% url 'login' %}">сюда</a>
+				<a class="btn btn-info ml-2" href="{% url 'login' %}">
+					сюда
+				</a>
 			</span>
-
 	</div>
-
 	{% endif %}
-
-</div>
 </div>
 {% endblock %}

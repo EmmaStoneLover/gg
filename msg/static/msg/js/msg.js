@@ -1,29 +1,25 @@
+// delimiters: ['[[', ']]'],
+
+
+var input = new Vue({
+	el: "#msg_title_and_input",
+	data: {
+    msg_input: true,
+    msg_input_adds: true
+	},
+	
+});
+
 
 user = $('#user_name').attr('name');
-if (user != 'Войти') {
-  $('#msg_input_user_hide').hide();
-  $('#msg_input_user').val(user);
-}
+console.log(user);
+if (user == "Войти") { $('#msg_input_user_hide').show() }
+else { $('#msg_input_user').val(user) };
 
-$('#msg_input_show_button').on('click', function(){
-  $('#msg_input').show();
-  $('#msg_input_show_button').hide();
-  $('#msg_input_hide_button').show();
-  if (user != 'Войти') {
-    $('#msg_input_user_hide').hide();
-  }
-});
-$('#msg_input_hide_button').on('click', function(){
-  $('#msg_input').hide();
-  $('#msg_input_show_button').show();
-  $('#msg_input_hide_button').hide();
-});
-
-
-$('p#msg_not_found').hide()
-$('#msg_input_add_hide').on('click', function() {
-  $('#msg_input_add_hide_div').toggleClass('invisible position-absolute z-index-property');
-});
+// $('p#msg_not_found').hide()
+// $('#msg_input_add_hide').on('click', function() {
+//   $('#msg_input_add_hide_div').toggleClass('invisible position-absolute z-index-property');
+// });
 
 remove_class_bg_list =
 ('bg-dark bg-white bg-light bg-primary bg-secondary bg-success bg-danger bg-warning bg-info');
@@ -44,8 +40,8 @@ $('#id_card_bg_color_choice').change( function () {
 
   addclass = $('#id_card_bg_color_choice').val();
 
-  $(".msg_input").removeClass( remove_class_bg );
-  $(".msg_input").addClass( addclass );
+  $("#msg_input").removeClass( remove_class_bg );
+  $("#msg_input").addClass( addclass );
 
 
   if ( addclass == 'bg-dark' ) {
@@ -53,9 +49,9 @@ $('#id_card_bg_color_choice').change( function () {
     inputs_bg.addClass('bg-dark text-white');
     $('#id_card_font_color_choice option').removeAttr('selected');
     $('#id_card_font_color_choice option[value=text-white]').attr('selected', 'selected');
-    $(".msg_input").removeClass( remove_class_text );
-    $(".msg_input_button").removeClass( remove_class_btn );
-    $(".msg_input_button").addClass('btn-success');
+    $("#msg_input").removeClass( remove_class_text );
+    $("#msg_input_button").removeClass( remove_class_btn );
+    $("#msg_input_button").addClass('btn-success');
   }
 
   if ( addclass == 'bg-warning' || addclass == 'bg-light') {
@@ -63,16 +59,16 @@ $('#id_card_bg_color_choice').change( function () {
     inputs_bg.removeClass( remove_class_text );
     $('#id_card_font_color_choice option').removeAttr('selected');
     $('#id_card_font_color_choice option[value=text-dark]').attr('selected', 'selected');
-    $(".msg_input").removeClass( remove_class_text );
-    $(".msg_input").addClass('text-dark');
-    $(".msg_input_button").removeClass( remove_class_btn );
+    $("#msg_input").removeClass( remove_class_text );
+    $("#msg_input").addClass('text-dark');
+    $("#msg_input_button").removeClass( remove_class_btn );
     if ( addclass == 'bg-warning' ) {
       inputs_bg.addClass('bg-warning');
-      $(".msg_input_button").addClass('btn-danger');
+      $("#msg_input_button").addClass('btn-danger');
     }
     if ( addclass == 'bg-light' ) {
       inputs_bg.addClass('bg-light');
-      $(".msg_input_button").addClass('btn-dark');
+      $("#msg_input_button").addClass('btn-dark');
     }
   }
 
@@ -86,27 +82,27 @@ $('#id_card_bg_color_choice').change( function () {
     inputs_bg.removeClass( remove_class_text );
     $('#id_card_font_color_choice option').removeAttr('selected');
     $('#id_card_font_color_choice option[value=text-white]').attr('selected', 'selected');
-    $(".msg_input").removeClass( remove_class_text );
-    $(".msg_input_button").removeClass( remove_class_btn );
+    $("#msg_input").removeClass( remove_class_text );
+    $("#msg_input_button").removeClass( remove_class_btn );
     if ( addclass == 'bg-success' ) {
       inputs_bg.addClass('bg-success text-white');
-      $(".msg_input_button").addClass('btn-warning');
+      $("#msg_input_button").addClass('btn-warning');
     }
     if ( addclass == 'bg-danger' ) {
         inputs_bg.addClass('bg-danger text-white');
-      $(".msg_input_button").addClass('btn-info');
+      $("#msg_input_button").addClass('btn-info');
     }
     if ( addclass == 'bg-primary' ) {
       inputs_bg.addClass('bg-primary text-white');
-      $(".msg_input_button").addClass('btn-danger');
+      $("#msg_input_button").addClass('btn-danger');
     }
     if ( addclass == 'bg-secondary' ) {
       inputs_bg.addClass('bg-secondary text-white');
-      $(".msg_input_button").addClass('btn-success');
+      $("#msg_input_button").addClass('btn-success');
     }
     if ( addclass == 'bg-info' ) {
       inputs_bg.addClass('bg-info text-white');
-      $(".msg_input_button").addClass('btn-danger');
+      $("#msg_input_button").addClass('btn-danger');
     }
   }
 
@@ -114,8 +110,8 @@ $('#id_card_bg_color_choice').change( function () {
 
 $('#id_card_font_color_choice').change( function () {
   addclass = $('#id_card_font_color_choice').val();
-  $(".msg_input").removeClass( remove_class_text );
-  $(".msg_input").addClass( addclass );
+  $("#msg_input").removeClass( remove_class_text );
+  $("#msg_input").addClass( addclass );
 });
 
 // Поиск по Новостям

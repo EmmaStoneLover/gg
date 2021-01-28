@@ -4,21 +4,19 @@
 
 {% block static %}
   <link rel="stylesheet" href="/static/main/css/home.css">
-  <!-- python manage.py collectstatic -->
 {% endblock %}
 
 {% block content %}
   <h1>Привет, ты на сайте Котики Ашотики!!!</h1>
-  <div class="row">
+  <div class="row gy-md-4 g-lg-4 g-xl-4 g-xxl-5 pt-lg-4">
     <div class="col-md-12 col-lg-3">
-
-      <div class="row">
+      <div class="row gy-lg-4 gy-xxl-5">
         <div class="col-md col-lg-12">
           <br>
           <h5>Ашотик рад что ты зашел)</h5>
           <h5>Тут можно что-то найти, наверно</h5>
           <br>
-          <div class="text-right mb-4">
+          <div class="text-right">
             <a class="btn btn-warning mt-md-4 mb-md-3 mb-lg-2 rounded"
                href="{% url 'about' %}">
               Страница о сайте
@@ -43,8 +41,8 @@
                src="/media/main/home-sm.jpg">
         </div>
       </div>
-
     </div>
+
     <div class="home_img col-md-12 col-lg-9 text-right">
       <img class="w-100 p-0 mb-2 rounded"
            src="/media/main/home.jpg">

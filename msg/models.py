@@ -6,7 +6,7 @@ class Message(models.Model):
     text = models.CharField('Текст', max_length=10000)
     date = models.DateTimeField(auto_now_add=True)
     picture = models.CharField('Изображение', blank=True, null=True, max_length=100, default='none')
-    picture_file = models.ImageField('Загрузка пикчи', upload_to='msg', blank=True, max_length=200, default='none')
+    picture_file = models.ImageField('Пикча', upload_to='msg', blank=True, max_length=200, default='none')
     BG_COLOR_CHOICE = [
         ('bg-dark', 'Темный фон'),
         ('bg-light', 'Светлый фон'),
@@ -26,12 +26,12 @@ class Message(models.Model):
         ('text-success', 'Зеленый цвет'),
         ('text-info', 'Голубой цвет')]
     card_font_color_choice = models.CharField('Цвет текста', max_length=100, choices=FONT_COLOR_CHOICE, default='text-white')
-    PINNED_NEWS = [('False','Не закреплена'), ('True','Закрепить'), ('None','Скрытая')]
-    top = models.CharField('Закрепить', blank=True, null=True, max_length=100, choices=PINNED_NEWS, default='False')
-    admin_news = models.BooleanField('Новости сайта', default='False')
+    PINNED_NEWS = [('False','no'), ('True','Pined'), ('None','Hide')]
+    top = models.CharField('Pine', blank=True, null=True, max_length=100, choices=PINNED_NEWS, default='False')
+    admin_news = models.BooleanField('✓', default='False')
 
     def __str__(self):
-        return 'id: ' + str(self.id) + ', ' + self.text
+        return str(self.id)
     # Название модели в админке
     class Meta():
         verbose_name = 'Новость'

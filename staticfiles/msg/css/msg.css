@@ -1,42 +1,38 @@
 .border-white {border: 1px solid white;}
 #msg_id {text-decoration-line: none;}
-/* .msg_input_text_and_bg_color::placeholder {color: white;} */
-.outerspace {
-  top: -1000px;
-  position:absolute;
-  z-index: -999;}
+.outerspace { top: -1000px; position:absolute; z-index: -999;}
 .msg_input {border-radius: 3px; z-index: 1;}
 #msg_input_add_hide {border: none;}
 #msg_input_picture_file {position: absolute; display: none;}
 #msg_input .card-header h5 {margin-bottom: 2px; margin-left: 7px;}
 #msg_id .card-header p {margin-bottom: 2px;}
+#msg_id img {width: 100%;}
+#msg_id svg {width: 16px; height: 16px;}
+#msg_search svg, #msg_img_add_div svg {width: 16px; height: 16px;}
 
-@media (min-width:991px) {
+@media (min-width:1200px) {
   #msg_title_and_input {position: fixed; z-index: 1;}
-  #msg_input_show_button, #msg_input_hide_button {display: none;}
-  .msg_input {
-    box-shadow: 3px 3px 100px -20px black;}
-  .msg_msgs {
-    box-shadow: 3px 3px 100px -20px black;}
+  #msg_input_show_button {display: none;}
+  .msg_input {box-shadow: 3px 3px 100px -20px black;}
+  .msg_msgs {box-shadow: 3px 3px 100px -20px black;}
   #msg_id .card-header, #msg_id .card-body {padding: 10px;}
   #msg_id .card-img {padding: 0;}
-  #msg_id img {width: 100%;}
   #msg_input .card-header, #msg_input .card-body {padding: 10px;}
-  .msg_input_text_and_bg_color {border: 2px solid rgb(0, 0, 0, 0.1);}
+  .msg_input_text_and_bg_color, #msg_input_add_hide {border: 2px solid rgb(0, 0, 0, 0.1);}
 }
-
+@media (max-width:1200px) {
+  #msg_input {max-width: 100%;}
+}
 @media (max-width:991px) {
   #msg_id {font-size: 2.5rem;}
   #msg_id .card-header {font-size: 2.7rem;}
-  #msg_input, #msg_input_hide_button {display: none;}
-  #msg_id .card-header p{font-size: 3rem;}
-  #msg_id img {width: 100%;}
+  #msg_id .card-header p {font-size: 3rem;}
+  #msg_id svg {width: 2.7rem; height: 2.7rem;}
+  #msg_search svg, #msg_img_add_div svg {width: 2.7rem; height: 2.7rem;}
   .content .form-control {font-size: 3rem;}
-  .content .custom-select {font-size: 3rem;}
-  .msg_msgs {margin-bottom: 20px;}
-  .msg_input, .msg_msgs {min-width: 400px; max-width: 100%; padding: 10px;}
+  .content .form-select {font-size: 3rem;}
   .form-control-file {font-size: 2.5rem;}
   #msg_search_input_button_find, #msg_search_input_button_clear {font-size: 2.5rem;}
-  .msg_input_text_and_bg_color {border: 5px solid rgb(0, 0, 0, 0.2);}
+  .msg_input_text_and_bg_color, #msg_input_add_hide {border: 5px solid rgb(0, 0, 0, 0.2);}
   #app form input {border: 5px solid grey;}
 }

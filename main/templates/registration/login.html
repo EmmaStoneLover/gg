@@ -1,38 +1,55 @@
 {% extends 'wrapper.html' %}
-
-{% block title %} <title>Вход в аккаунт</title> {% endblock %}
-
-{% block static %} <link rel="stylesheet" href="/static/css/login.css"> {% endblock %}
+{% block title %}
+	<title>Вход в аккаунт</title>
+{% endblock %}
+{% block static %}
+	<link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
 
 {% block content %}
-
-		<div class="row justify-content-center">
-      <div id="login_input"
-           class="w-100 mb-5 rounded">
-        <div class="m-4">
-					<h4 class="text-center">Вход в аккаунт</h4>
-        </div>
-        <form class="card-body m-sm-3 m-md-2 m-lg-1"
-              method="post"
-              enctype="multipart/form-data">
-          {% csrf_token %}
-					<div class="row mb-2">
-						<div class="col-md-3 col-lg-2 mt-lg-2"><p>Логин:</p></div>
-						<div class="col-md-9 col-lg-10 login_password">{{ form.username }}</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3 col-lg-2 mt-lg-2"><p>Пароль:</p></div>
-						<div class="col-md-9 col-lg-10 login_password">{{ form.password }}</div>
-					</div>
-					<div class="row justify-content-end mr-2">
-						<button id=""
-										type="submit"
-										class=" btn btn-success mt-3 rounded">
-							Войти
-						</button>
-					</div>
-        </form>
+	<div class="row justify-content-center">
+    <div id="login_input"
+         class="w-100 mb-5 rounded">
+      <div class="m-4">
+				<h2 class="text-center">Вход в аккаунт</h2>
       </div>
-		</div>
+      <form class="card-body m-sm-3 m-md-2 m-lg-1"
+            method="post"
+            enctype="multipart/form-data">
+        {% csrf_token %}
+				<div class="row mb-2">
+					<div class="col-md-3 col-lg-2 mt-lg-2">
+						<p>Логин:</p>
+					</div>
+					<div class="col-md-9 col-lg-10 login_password">
+						{{ form.username }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-lg-2 mt-lg-2">
+						<p>Пароль:</p>
+					</div>
+					<div class="col-md-9 col-lg-10 login_password mb-md-5 mb-lg-4">
+						{{ form.password }}
+					</div>
+				</div>
+				<div class="row justify-content-end">
+					<button type="submit"
+									class="col-8 btn btn-success rounded">
+						Войти
+					</button>
+				</div>
+      </form>
+			<div class="row justify-content-end mr-2 mt-md-4 mt-lg-2">
+				<div class="col-8">
+					<p class="text-right">Текст текст текст текст текст</p>
+					<p class="text-right">текст текст текст text</p>
+					<p class="text-right">текст текст текст</p>
+					<p class="text-right">текст</p>
+					<br>
+				</div>
+			</div>
+    </div>
+	</div>
 
 {% endblock %}
