@@ -17,6 +17,7 @@
 			<li class="nav-item">
 				{% if user.is_authenticated %}
 					<a 	id="user_name"
+							v-model="user"
 							name="{{ user.first_name }}"
 							class="nav-link"
 							href="{% url 'account' %}">
@@ -24,6 +25,7 @@
 					</a>
 				{% else %}
 					<a class="nav-link"
+							v-model="user"
 							id="user_name"
 							name="Войти"
 							href="{% url 'login' %}">

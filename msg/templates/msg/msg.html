@@ -1,24 +1,18 @@
 {% extends 'wrapper.html' %}
 {% block title %}
-  <title>ЬУЬ</title>
+  <title>Помойка</title>
 {% endblock %}
 {% block static %}
   <link  rel="stylesheet" href="/static/msg/css/msg.css">
 {% endblock %}
-{% block js %}
-  <script src="/static/msg/js/vue.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/static/msg/js/msg.js"></script>
-{% endblock %}
 {% block content %}
-<div class="row">
+<div class="row" id="app">
+
   <div class="col-xl-5">
-    <div id="msg_title_and_input"
-         class="">
-      <div id="msg_title"
-           class="row justify-content-between">
+    <div id="msg_title_and_input">
+      <div id="msg_title" class="row justify-content-between">
         <div class="col-8">
-            <h1 class="align-left mb-4">
+          <h1 class="align-left mb-4">
             Помойка
           </h1>
         </div>
@@ -33,6 +27,32 @@
           </div>
         </div>
       </div>
+
+      <div id="msg_example" class="">
+        <div class="msg"
+             style="display: none;"
+             v-show=" vue_text != '' ">
+            <div class="nav-link p-0">
+              <div id="msg_id"
+                   :class="[vue_card_bg_color_choice, vue_card_font_color_choice]"
+                   class="msg_msgs card mb-4 p-0 border-0 rounded">
+                <div class="card-header"
+                     v-html="vue_text">
+                </div>
+                <div class="card-body">
+                  <span class="card-text float-right">
+                    {% if user.is_authenticated %} ✓ {% endif %}
+                    29.01.2021
+                  </span>
+                  <span class="card-title">
+                    [[ vue_user ]]
+                  </span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
       <div id="msg_input"
            :class="{'d-md-block': !msg_input, 'd-xl-none': msg_input}"
            class="d-md-none d-xl-block bg-dark text-white mb-4 rounded">
@@ -47,15 +67,21 @@
           <div class="mb-md-4 mb-lg-3">
             {{ form.text }}
           </div>
-          <div id="msg_input_user_hide"
-                style="display: none;">
-            {{ form.user }}<br>
-          </div>
+          {% if user.is_authenticated %}
+            <div id="msg_input_user_hide"
+                 style="display:none;">
+              {{ form.user }}
+            </div>
+          {% else %}
+            <div id="msg_input_user_hide">
+              {{ form.user }}<br>
+            </div>
+          {% endif %}
           <div id="msg_img_add_div">
-            <a id="msg_input_add_hide"
+            <button id="msg_input_add_hide"
                     @click="msg_input_adds = !msg_input_adds"
                     type="button"
-                    class="msg_input_button text-white decoration-none p-1
+                    class="msg_input_button btn bg-dark text-white p-1
                           mb-md-2 pl-md-4 pl-lg-2 pr-md-4 pr-lg-3 rounded">
               <svg fill="currentColor" class="bi bi-gear mr-1" viewBox="0 0 16 16">
                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0
@@ -79,7 +105,7 @@
                 2.692-1.115l.094-.319z"/>
               </svg>
               Дополнительно
-            </a>
+            </button>
             <div id="msg_input_add_hide_div"
                  :class="{'d-block': !msg_input_adds}"
                  class="d-none z-index-property">
@@ -130,13 +156,13 @@
   </div>
 
   <div class="col-xl-7">
+
     <!-- Поиск по новостям -->
     <div id="msg_search" class="input-group">
       <button class="input-group-text bg-dark text-white pl-md-4 pr-md-4 mb-4
                   pl-lg-3 pr-lg-3 border-0 rounded-left"
             id="msg_search_input_button_clear" type="button">
-        <svg fill="currentColor"
-             class="bi bi-backspace" viewBox="0 0 16 16">
+        <svg fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
         <path d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5
               0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39
         8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z"/>
@@ -153,10 +179,8 @@
              type="text">
       <button class="input-group-text bg-dark text-white pl-md-5 pr-md-4
                   pl-lg-4 pr-lg-3 mb-4 border-0 rounded-right"
-            @click="F"
             id="msg_search_input_button_find" type="button">
-        <svg fill="currentColor"
-             class="bi bi-search" viewBox="0 0 16 16">
+        <svg fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397
               1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0
               1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12
@@ -164,7 +188,6 @@
         </svg>
       </button>
     </div>
-
     <p id="msg_not_found"
        style="display: none;">
       Ничего не найдено
@@ -259,8 +282,13 @@
         <p>Сообщений нет</p>
       </div>
     {% endif %}
-
   </div>
-</div>
 
+</div>
+{% endblock %}
+
+{% block js %}
+  <script src="/static/msg/js/vue.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/msg/js/msg.js"></script>
 {% endblock %}
