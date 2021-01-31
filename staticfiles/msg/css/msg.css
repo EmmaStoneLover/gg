@@ -2,26 +2,21 @@
 #msg_id {text-decoration-line: none;}
 .outerspace { top: -1000px; position:absolute; z-index: -999;}
 .msg_input {border-radius: 3px; z-index: 1;}
-#msg_input_add_hide {border: none;}
 #msg_input_picture_file {position: absolute; display: none;}
-#msg_input .card-header h5 {margin-bottom: 2px; margin-left: 7px;}
 #msg_id .card-header p {margin-bottom: 2px;}
+#msg_id svg, #msg_search svg, #msg_img_add_div svg {width: 16px; height: 16px;}
 #msg_id img {width: 100%;}
-#msg_id svg {width: 16px; height: 16px;}
-#msg_search svg, #msg_img_add_div svg {width: 16px; height: 16px;}
 
 @media (min-width:1200px) {
   #msg_title_and_input {position: fixed; z-index: 1;}
   #msg_example {position: fixed; z-index: 1; width: 650px; left: 40%;}
   #msg_input_show_button {display: none;}
-  .msg_input {box-shadow: 3px 3px 100px -20px black;}
-  .msg_msgs {box-shadow: 3px 3px 100px -20px black;}
-  #msg_id .card-header, #msg_id .card-body {padding: 10px;}
-  #msg_id .card-img {padding: 0;}
-  #msg_input .card-header, #msg_input .card-body {padding: 10px;}
+  .msg_input, .msg_msgs {box-shadow: 3px 3px 100px -20px black;}
   .msg_input_text_and_bg_color, #msg_input_add_hide {
     border: 2px solid rgb(0, 0, 0, 0.1);
   }
+  #msg_example .card-header {max-height: 100px; overflow-y: auto;}
+  #msg_example #input_image {max-height: 500px; overflow-y: auto;}
 }
 @media (max-width:1200px) {
   #msg_input {max-width: 100%;}
@@ -30,8 +25,7 @@
   #msg_id {font-size: 2.5rem;}
   #msg_id .card-header {font-size: 2.7rem;}
   #msg_id .card-header p {font-size: 3rem;}
-  #msg_id svg {width: 2.7rem; height: 2.7rem;}
-  #msg_search svg, #msg_img_add_div svg {width: 2.7rem; height: 2.7rem;}
+  #msg_id svg, #msg_search svg, #msg_img_add_div svg {width: 2.7rem; height: 2.7rem;}
   .content .form-control {font-size: 3rem;}
   .content .form-select {font-size: 3rem;}
   .form-control-file {font-size: 2.5rem;}
