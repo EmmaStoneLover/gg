@@ -6,13 +6,6 @@
   <link rel="stylesheet" href="/static/msg/css/msg.css">
 {% endblock %}
 
-{% block js %}
-  <script src="/static/msg/js/vue.js"></script>
-  <script type="text/javascript"
-          src="/static/msg/js/msg_id.js">
-  </script>
-{% endblock %}
-
 {% block content %}
 
 <div class="row">
@@ -131,4 +124,11 @@
 {% endfor %}
 </div>
 
+{% endblock %}
+
+{% block js %}
+  <script src="/static/msg/js/vue.js"></script>
+  <script type="text/javascript"
+          src="/static/msg/js/msg_id.js">
+  </script>
 {% endblock %}

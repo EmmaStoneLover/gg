@@ -25,7 +25,8 @@ class MessageForm(ModelForm):
                 'placeholder': 'Ссылка на изображение',
                 }),
             'picture_file': FileInput(attrs={
-                'id': 'msg_input_picture_file'
+                'id': 'msg_input_picture_file',
+                'onchange': 'input_image_onchange(files)'
                 }),
             'card_bg_color_choice': Select(attrs={
                 'id': 'id_card_bg_color_choice',
