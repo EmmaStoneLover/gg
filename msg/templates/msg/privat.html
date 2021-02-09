@@ -6,13 +6,6 @@
   <link rel="stylesheet" href="/static/msg/css/privat.css">
 {% endblock %}
 
-{% block js %}
-  <script src="/static/msg/js/vue.js"></script>
-  <script type="text/javascript"
-          src="/static/msg/js/privat.js">
-  </script>
-{% endblock %}
-
 {% block content %}
 
 {% if user.is_authenticated and user.username == 'volkovmb' or user.is_authenticated and user.username == 'zenkinada' %}
@@ -81,4 +74,11 @@
   </div>
 {% endif %}
 
+{% endblock %}
+
+{% block js %}
+  <script src="/static/msg/js/vue.js"></script>
+  <script type="text/javascript"
+          src="/static/msg/js/privat.js">
+  </script>
 {% endblock %}

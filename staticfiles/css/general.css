@@ -11,13 +11,13 @@ body {
 }
 button:focus{outline:none;}
 input:focus{outline:none;}
-.footer hr {background: grey;}
+.footer hr {background: #272b30;}
 a {text-decoration: none;}
 .content, .header, .footer {
   box-sizing: border-box;
   width: 100%;
   z-index: 0;}
-.footer {z-index: 1;}
+.footer {z-index: 1; background: #272b30;}
 .content {flex-grow: 1;}
 .header, .footer {box-shadow: 3px 3px 100px -20px black;}
 

@@ -8,8 +8,8 @@
 #msg_id img {width: 100%;}
 
 @media (min-width:1200px) {
-  #msg_title_and_input {position: fixed; z-index: 1;}
-  #msg_example {position: fixed; z-index: 1; width: 650px; left: 40%;}
+  #msg_title_and_input {position: fixed; z-index: 1; max-width: 500px!important;}
+  #msg_example {position: fixed; z-index: 1; width: 600px; left: 45%;}
   #msg_input_show_button {display: none;}
   .msg_input, .msg_msgs {box-shadow: 3px 3px 100px -20px black;}
   .msg_input_text_and_bg_color, #msg_input_add_hide {

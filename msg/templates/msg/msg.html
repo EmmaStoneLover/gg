@@ -6,135 +6,128 @@
   <link  rel="stylesheet" href="/static/msg/css/msg.css">
 {% endblock %}
 {% block content %}
-<div class="row" id="app">
-
-  <div class="col-xl-5">
-    <!------------------------------- Помойка и Добавить ------------------------------>
-    <div id="msg_title_and_input">
-      <div id="msg_title" class="row justify-content-between">
-        <div class="col-8">
-          <h1 class="align-left mb-4">
-            Помойка
-          </h1>
-        </div>
-        <div class="col-4">
-          <div class="d-flex justify-content-end">
-            <button id="msg_input_show_button"
-                    @click="msg_input = !msg_input"
-                    class="btn btn-success pl-4 pr-4 rounded"
-                    type="button">
-                Добавить
-            </button>
+<div class="row justify-content-between" id="app">
+  <div class="col-xl-5"> <!----------- Помойка, Пример, Добавить -->
+    <div class="row-xl">
+      <div id="msg_title_and_input" class="col-xl-4">
+        <div id="msg_title" class="row justify-content-between"> <!--- Помойка и Добавить ---->
+          <div class="col-8">
+            <h1 class="align-left mb-4">
+              Помойка
+            </h1>
           </div>
-        </div>
-      </div>
-    <!----------------------------------- Пример новости ------------------------------>
-      <div id="msg_example">
-        <div class="msg" style="display: none;"
-             v-show=" vue_text != '' ">
-          <div class="nav-link p-0">
-            <div id="msg_id"
-                 :class="[vue_card_bg_color_choice, vue_card_font_color_choice]"
-                 class="msg_msgs card mb-4 p-0 border-0 rounded">
-              <div class="card-header p-md-4 p-lg-2"
-                v-html="vue_text">
-              </div>
-              <div id="input_image">
-              </div>
-              <div class="card-body p-md-4 p-lg-2">
-                <span class="card-text float-right">
-                  {% if user.is_authenticated %} ✓ {% endif %}
-                  29.01.2021
-                </span>
-                <span class="card-title">
-                  [[ vue_user ]]
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!------------------------------- Добавить новость ------------------------------>
-      <div id="msg_input"
-           :class="{'d-md-block': !msg_input, 'd-xl-none': msg_input}"
-           class="d-md-none d-xl-block bg-dark text-white mb-4 rounded">
-        <form class="card-header p-md-4 p-lg-2"
-              method="post"
-              enctype="multipart/form-data">
-          <div class="ml-md-3 ml-xl-2 mt-md-3 mb-md-4 mt-xl-1 mb-xl-1">
-            <h4>Добавить новость</h4>
-          </div>
-          {% csrf_token %}
-          <span>{{ error }}</span>
-          <div class="mb-md-4 mb-lg-3">
-            {{ form.text }}
-          </div>
-          {% if user.is_authenticated %}
-            <div id="msg_input_user_hide"
-                 style="display:none;">
-              {{ form.user }}
-            </div>
-          {% else %}
-            <div id="msg_input_user_hide">
-              {{ form.user }}<br>
-            </div>
-          {% endif %}
-          <div id="msg_img_add_div">
-            <button id="msg_input_add_hide"
-                    @click="msg_input_adds = !msg_input_adds"
-                    type="button"
-                    class="msg_input_button btn bg-dark text-white p-1
-                          mb-md-2 pl-md-4 pl-lg-2 pr-md-4 pr-lg-3 rounded">
-              {% include 'msg/icons/more.svg' %}
-              Дополнительно
-            </button>
-            <div id="msg_input_add_hide_div"
-                 :class="{'d-block': !msg_input_adds}"
-                 class="d-none z-index-property">
-              <div class="form-group mt-md-3 mt-lg-1">
-                {{ form.picture_file }}
-                <label for="msg_input_picture_file"
-                       class="msg_input_text_and_bg_color pl-md-4 pl-lg-3
-                       form-control text-white bg-dark rounded">
-                  <span class="pr-md-2 pr-lg-1">
-                    {% include 'msg/icons/image.svg' %}
-                  </span>
-                  Загрузить файл
-                </label>
-              </div>
-              <div class="bs-component">
-                <div class="form-group mt-md-3 mt-lg-1">
-                  {{ form.card_bg_color_choice }}
-                </div>
-                <div class="form-group mt-md-3 mt-lg-1 mb-md-2 mb-lg-1">
-                  {{ form.card_font_color_choice }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-between mb-md-3 mb-lg-0">
-            <div class="col-5">
-              <button id="msg_input_button"
-                      type="submit"
-                      class="msg_input_button btn btn-success mt-md-3 mt-lg-2
-                      pl-md-4 pr-md-4 pl-lg-3 pr-lg-3 rounded">
-                Отправить
+          <div class="col-4">
+            <div class="d-flex justify-content-end">
+              <button id="msg_input_show_button"
+                      @click="msg_input = !msg_input"
+                      class="btn btn-success pl-4 pr-4 rounded"
+                      type="button">
+                  Добавить
               </button>
             </div>
-            <div class="col-3 d-sm-none d-lg-block">
-              <a class="nav-link text-success mt-3 mb-0 pb-lg-0"
-                 href="#">
-                вверх
-              </a>
+          </div>
+        </div>
+        <div id="msg_example" class="justify-content-end"> <!---- Пример новости ----->
+          <div class="msg" style="display: none;"
+               v-show=" vue_text != '' ">
+            <div class="nav-link p-0">
+              <div id="msg_id"
+                   :class="[vue_card_bg_color_choice, vue_card_font_color_choice]"
+                   class="msg_msgs card mb-4 p-0 border-0 rounded">
+                <div class="card-header p-md-4 p-lg-2"
+                  v-html="vue_text">
+                </div>
+                <div id="input_image">
+                </div>
+                <div class="card-body p-md-4 p-lg-2">
+                  <span class="card-text float-right">
+                    {% if user.is_authenticated %} ✓ {% endif %}
+                    29.01.2021
+                  </span>
+                  <span class="card-title">
+                    [[ vue_user ]]
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-        </form>
+        </div>
+        <div id="msg_input" :class="{'d-md-block': !msg_input, 'd-xl-none': msg_input}" class="d-md-none d-xl-block bg-dark text-white mb-4 rounded"> <!-------------------------- Добавить новость ------>
+          <form class="card-header p-md-4 p-lg-2" method="post" enctype="multipart/form-data">
+            <div class="ml-md-3 ml-xl-2 mt-md-3 mb-md-4 mt-xl-1 mb-xl-1">
+              <h4>Добавить новость</h4>
+            </div>
+            {% csrf_token %}
+            <span>{{ error }}</span>
+            <div class="mb-md-4 mb-lg-3">
+              {{ form.text }}
+            </div>
+            {% if user.is_authenticated %}
+              <div id="msg_input_user_hide"
+                   style="display:none;">
+                {{ form.user }}
+              </div>
+            {% else %}
+              <div id="msg_input_user_hide">
+                {{ form.user }}<br>
+              </div>
+            {% endif %}
+            <div id="msg_img_add_div">
+              <button id="msg_input_add_hide"
+                      @click="msg_input_adds = !msg_input_adds"
+                      type="button"
+                      class="msg_input_button btn bg-dark text-white p-1
+                            mb-md-2 pl-md-4 pl-lg-2 pr-md-4 pr-lg-3 rounded">
+                {% include 'msg/icons/more.svg' %}
+                Дополнительно
+              </button>
+              <div id="msg_input_add_hide_div"
+                   :class="{'d-block': !msg_input_adds}"
+                   class="d-none z-index-property">
+                <div class="form-group mt-md-3 mt-lg-1">
+                  {{ form.picture_file }}
+                  <label for="msg_input_picture_file"
+                         class="msg_input_text_and_bg_color pl-md-4 pl-lg-3
+                         form-control text-white bg-dark rounded">
+                    <span class="pr-md-2 pr-lg-1">
+                      {% include 'msg/icons/image.svg' %}
+                    </span>
+                    Загрузить файл
+                  </label>
+                </div>
+                <div class="bs-component">
+                  <div class="form-group mt-md-3 mt-lg-1">
+                    {{ form.card_bg_color_choice }}
+                  </div>
+                  <div class="form-group mt-md-3 mt-lg-1 mb-md-2 mb-lg-1">
+                    {{ form.card_font_color_choice }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between mb-md-3 mb-lg-0">
+              <div class="col-5">
+                <button id="msg_input_button"
+                        type="submit"
+                        class="msg_input_button btn btn-success mt-md-3 mt-lg-2
+                        pl-md-4 pr-md-4 pl-lg-3 pr-lg-3 rounded">
+                  Отправить
+                </button>
+              </div>
+              <div class="col-3 d-sm-none d-lg-block">
+                <a class="nav-link text-success mt-3 mb-0 pb-lg-0"
+                   href="#">
+                  вверх
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-xl-7">
-    <!------------------------------- Поиск по новостям ------------------------------>
-    <div id="msg_search" class="input-group">
+  <div class="col-xl-7"> <!--------------------- Поиск, Новости -------->
+    <div id="msg_search" class="input-group"> <!------------ Поиск по новостям -------->
       <button class="input-group-text bg-dark text-white pl-md-4 pr-md-4 mb-4
                   pl-lg-3 pr-lg-3 border-0 rounded-left"
             id="msg_search_input_button_clear" type="button">
@@ -146,7 +139,7 @@
              placeholder="Поиск"
              type="text">
       <button class="input-group-text bg-dark text-white pl-md-5 pr-md-4
-                  pl-lg-4 pr-lg-3 mb-4 border-0 rounded-right"
+                pl-lg-4 pr-lg-3 mb-4 border-0 rounded-right"
             id="msg_search_input_button_find" type="button">
         {% include 'msg/icons/search.svg' %}
       </button>
@@ -155,89 +148,30 @@
        style="display: none;">
       Ничего не нашел
     </p>
-    <!--------------------------- Закрепленные новости --------------------------------->
-    <div class="msg">
+    <div class="msg"> <!------------------------------------- Закрепленные новости ---->
       {% for m in message %}
         {% if m.top == 'True' %}
-        <a class="nav-link p-0"
-           href="/msg/{{m.id}}">
-          <div id="msg_id"
-               class="msg_msgs card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
-                                    {{ m.card_font_color_choice }} border-0">
-            <div class="card-header">
-              {{ m.text|safe|linebreaks }}
-            </div>
-            <div class="card-img">
-              {% if m.picture != 'none' %}
-                <img src="{{ m.picture }}">
-              {% endif %}
-              {% if m.picture_file != 'none' %}
-                <img src="/media/{{ m.picture_file }}">
-              {% endif %}
-            </div>
-            <div class="card-body">
-              <span class="card-text float-right">
-                {% if m.admin_news == True %} ✓ {% endif %}
-                {% if m.comment_set.count > 0 %}
-                  {% include 'msg/icons/chat-right.svg' %}
-                  {{m.comment_set.count}}
-                {% endif %}
-                {{ m.date|date:'d.m.Y' }}
-              </span>
-              <span class="card-title">
-                {{ m.user }}
-              </span>
-            </div>
-          </div>
-        </a>
+          {% include 'msg/includes/new.html' %}
         {% endif %}
       {% endfor %}
     </div>
-    <!----------------------------------- Новости ------------------------------------>
-    {% if message %}
-    <div class="msg">
+    <div class="msg"> <!---------------------------------------- Новости ------------->
+      {% if message %}
       {% for m in message %}
         {% if m.top == 'False' %}
-        <a class="nav-link p-0" href="/msg/{{m.id}}">
-          <div id="msg_id"
-               class="msg_msgs card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
-                                    {{ m.card_font_color_choice }} border-0">
-            <div class="card-header p-md-4 p-lg-2">
-              {{ m.text|safe|linebreaks }}
-            </div>
-            <div class="card-img">
-              {% if m.picture != 'none' %}
-                <img src="{{ m.picture }}">
-              {% endif %}
-              {% if m.picture_file != 'none' %}
-                <img src="/media/{{ m.picture_file }}">
-              {% endif %}
-            </div>
-            <div class="card-body p-md-4 p-lg-2">
-              <span class="card-text float-right">
-                {% if m.admin_news == True %} ✓ {% endif %}
-                {% if m.comment_set.count > 0 %}
-                  {% include 'msg/icons/chat-right.svg' %}
-                  {{m.comment_set.count}}
-                {% endif %}
-                {{ m.date|date:'d.m.Y' }}
-              </span>
-              <span class="card-title">
-                {{ m.user }}
-              </span>
-            </div>
-          </div>
-        </a>
+          {% include 'msg/includes/new.html' %}
         {% endif %}
       {% endfor %}
-    </div>
-    {% else %}
+      {% else %}
       <div class="container">
-        <p>Сообщений нет</p>
+        <p>Новостей нет</p>
       </div>
-    {% endif %}
+      {% endif %}
+    </div>
   </div>
+
 </div>
+
 {% endblock %}
 
 {% block js %}
