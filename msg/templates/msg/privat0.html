@@ -4,13 +4,6 @@
 
 {% block static %} <link rel="stylesheet" href="/static/msg/css/privat.css"> {% endblock %}
 
-{% block js %}
-
-  <script src="/static/msg/js/vue.js"></script>
-  <script type="text/javascript" src="/static/msg/js/privat.js"></script>
-
-{% endblock %}
-
 {% block content %}
 
 {{ smth|json_script:"smth" }}
@@ -47,5 +40,12 @@
 
 	</select>
  </div>
+
+{% endblock %}
+
+{% block js %}
+
+  <script src="/static/msg/js/vue.js"></script>
+  <script type="text/javascript" src="/static/msg/js/privat.js"></script>
 
 {% endblock %}

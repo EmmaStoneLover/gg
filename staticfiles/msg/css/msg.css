@@ -11,7 +11,7 @@
   #msg_title_and_input {position: fixed; z-index: 1; max-width: 500px!important;}
   #msg_example {position: fixed; z-index: 1; width: 600px; left: 45%;}
   #msg_input_show_button {display: none;}
-  .msg_input, .msg_msgs {box-shadow: 3px 3px 100px -20px black;}
+  /*.msg_input, .msg_msgs {box-shadow: 3px 3px 100px -20px black;}*/
   .msg_input_text_and_bg_color, #msg_input_add_hide {
     border: 2px solid rgb(0, 0, 0, 0.1);
   }
@@ -20,6 +20,9 @@
 }
 @media (max-width:1200px) {
   #msg_input {max-width: 100%;}
+  .msg_input_text_and_bg_color, #msg_input_add_hide {
+    border: 3px solid rgb(0, 0, 0, 0.2);
+  }
 }
 @media (max-width:991px) {
   #msg_id {font-size: 2.5rem;}

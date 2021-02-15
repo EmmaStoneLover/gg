@@ -19,7 +19,7 @@ a {text-decoration: none;}
   z-index: 0;}
 .footer {z-index: 1; background: #272b30;}
 .content {flex-grow: 1;}
-.header, .footer {box-shadow: 3px 3px 100px -20px black;}
+/*.header, .footer {box-shadow: 3px 3px 100px -20px black;}*/
 
 .rounded {border-radius: 0.4rem!important;}
 .rounded-right {border-top-right-radius: 0.4rem!important; border-bottom-right-radius: 0.4rem!important;}

@@ -1,8 +1,8 @@
-<a class="nav-link p-0" href="/msg/{{m.id}}">
+<a class="nav-link p-0" href="/msg/{{m.id}}" name="{{m.id}}">
 	<div id="msg_id"
 			 class="msg_msgs card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
 														{{ m.card_font_color_choice }} border-0">
-		<div class="card-header p-md-4 p-lg-2">
+		<div class="msg_text card-header p-md-4 p-lg-2">
 			{{ m.text|safe|linebreaks }}
 		</div>
 		<div class="card-img">
@@ -27,7 +27,7 @@
 					{% include 'msg/icons/pin-angle.svg' %}
 				{% endif %}
 			</span>
-			<span class="card-title">
+			<span class="msg_user card-title">
 				{{ m.user }}
 			</span>
 		</div>

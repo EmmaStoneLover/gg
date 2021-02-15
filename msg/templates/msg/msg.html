@@ -7,10 +7,11 @@
 {% endblock %}
 {% block content %}
 <div class="row justify-content-between" id="app">
-  <div class="col-xl-5"> <!----------- Помойка, Пример, Добавить -->
+  <div class="col-xl-5"> <!--------------------------- Помойка, Пример, Добавить -->
     <div class="row-xl">
       <div id="msg_title_and_input" class="col-xl-4">
-        <div id="msg_title" class="row justify-content-between"> <!--- Помойка и Добавить ---->
+        <!--------------------------------------------------- Помойка и Добавить -->
+        <div id="msg_title" class="row justify-content-between">
           <div class="col-8">
             <h1 class="align-left mb-4">
               Помойка
@@ -52,84 +53,18 @@
             </div>
           </div>
         </div>
-        <div id="msg_input" :class="{'d-md-block': !msg_input, 'd-xl-none': msg_input}" class="d-md-none d-xl-block bg-dark text-white mb-4 rounded"> <!-------------------------- Добавить новость ------>
-          <form class="card-header p-md-4 p-lg-2" method="post" enctype="multipart/form-data">
-            <div class="ml-md-3 ml-xl-2 mt-md-3 mb-md-4 mt-xl-1 mb-xl-1">
-              <h4>Добавить новость</h4>
-            </div>
-            {% csrf_token %}
-            <span>{{ error }}</span>
-            <div class="mb-md-4 mb-lg-3">
-              {{ form.text }}
-            </div>
-            {% if user.is_authenticated %}
-              <div id="msg_input_user_hide"
-                   style="display:none;">
-                {{ form.user }}
-              </div>
-            {% else %}
-              <div id="msg_input_user_hide">
-                {{ form.user }}<br>
-              </div>
-            {% endif %}
-            <div id="msg_img_add_div">
-              <button id="msg_input_add_hide"
-                      @click="msg_input_adds = !msg_input_adds"
-                      type="button"
-                      class="msg_input_button btn bg-dark text-white p-1
-                            mb-md-2 pl-md-4 pl-lg-2 pr-md-4 pr-lg-3 rounded">
-                {% include 'msg/icons/more.svg' %}
-                Дополнительно
-              </button>
-              <div id="msg_input_add_hide_div"
-                   :class="{'d-block': !msg_input_adds}"
-                   class="d-none z-index-property">
-                <div class="form-group mt-md-3 mt-lg-1">
-                  {{ form.picture_file }}
-                  <label for="msg_input_picture_file"
-                         class="msg_input_text_and_bg_color pl-md-4 pl-lg-3
-                         form-control text-white bg-dark rounded">
-                    <span class="pr-md-2 pr-lg-1">
-                      {% include 'msg/icons/image.svg' %}
-                    </span>
-                    Загрузить файл
-                  </label>
-                </div>
-                <div class="bs-component">
-                  <div class="form-group mt-md-3 mt-lg-1">
-                    {{ form.card_bg_color_choice }}
-                  </div>
-                  <div class="form-group mt-md-3 mt-lg-1 mb-md-2 mb-lg-1">
-                    {{ form.card_font_color_choice }}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-between mb-md-3 mb-lg-0">
-              <div class="col-5">
-                <button id="msg_input_button"
-                        type="submit"
-                        class="msg_input_button btn btn-success mt-md-3 mt-lg-2
-                        pl-md-4 pr-md-4 pl-lg-3 pr-lg-3 rounded">
-                  Отправить
-                </button>
-              </div>
-              <div class="col-3 d-sm-none d-lg-block">
-                <a class="nav-link text-success mt-3 mb-0 pb-lg-0"
-                   href="#">
-                  вверх
-                </a>
-              </div>
-            </div>
-          </form>
+        <!------------------------------------------------ Добавить новость ------>
+        <div id="msg_input" 
+             :class="{'d-md-block': !msg_input, 'd-xl-none': msg_input}" 
+             class="d-md-none d-xl-block bg-dark text-white mb-4 rounded">
+          {% include 'msg/includes/input.html' %}
         </div>
       </div>
     </div>
   </div>
-  <div class="col-xl-7"> <!--------------------- Поиск, Новости -------->
-    <div id="msg_search" class="input-group"> <!------------ Поиск по новостям -------->
-      <button class="input-group-text bg-dark text-white pl-md-4 pr-md-4 mb-4
-                  pl-lg-3 pr-lg-3 border-0 rounded-left"
+  <div id="msg_search_and_msgs" class="col-xl-7"> <!----------------------------- Поиск, Новости -------->
+    <div id="msg_search" class="input-group"> <!----- Поиск по новостям -------->
+      <button class="input-group-text bg-dark text-white pl-md-4 pr-md-4 mb-4 pl-lg-3 pr-lg-3 border-0 rounded-left"
             id="msg_search_input_button_clear" type="button">
         {% include 'msg/icons/backspace.svg' %}
       </button>
@@ -148,14 +83,14 @@
        style="display: none;">
       Ничего не нашел
     </p>
-    <div class="msg"> <!------------------------------------- Закрепленные новости ---->
+    <div class="msg"> <!------------------------------- Закрепленные новости ---->
       {% for m in message %}
         {% if m.top == 'True' %}
           {% include 'msg/includes/new.html' %}
         {% endif %}
       {% endfor %}
     </div>
-    <div class="msg"> <!---------------------------------------- Новости ------------->
+    <div class="msg"> <!----------------------------------- Новости ------------->
       {% if message %}
       {% for m in message %}
         {% if m.top == 'False' %}
@@ -166,7 +101,7 @@
       <div class="container">
         <p>Новостей нет</p>
       </div>
-      {% endif %}
+      {% endif %} 
     </div>
   </div>
 
