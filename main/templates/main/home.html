@@ -15,28 +15,28 @@
           <br>
           <h5>Ашотик рад что ты зашел)</h5>
           <h5>Тут можно что-то найти, наверно</h5>
-          <br>
-          <div class="text-right">
-            <a class="btn btn-warning mt-md-4 mb-md-3 mb-lg-2 rounded"
-               href="{% url 'about' %}">
-              Страница о сайте
+          <div class="links text-right">
+            <a class="btn btn-danger mt-md-2 mb-md-2 mb-lg-1 rounded"
+               href="{% url 'msg' %}">
+              На помойку {% include 'includes/icons/trash.svg' %}
             </a><br>
-            <a class="btn btn-info mr-md-2 mr-lg-1 rounded"
+            <a class="btn btn-warning  rounded"
+               href="{% url 'about' %}">
+              О сайте
+            </a>
+            <a class="btn btn-info  rounded"
               {% if user.is_authenticated %}
                href="{% url 'account' %}">
               {% else %}
                href="{% url 'login' %}">
               {% endif %}
-              Войти
+              Войти {% include 'includes/icons/person-circle.svg' %}
             </a>
-            <a class="btn btn-danger rounded"
-               href="{% url 'msg' %}">
-              На помойку
-            </a>
+            
           </div>
 
         </div>
-        <div class="col-md col-lg-12">
+        <div class="col-md-6 col-lg-12">
           <img class="w-100 p-0 rounded"
                src="/media/main/home-sm.jpg">
         </div>

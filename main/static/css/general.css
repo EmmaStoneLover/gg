@@ -19,7 +19,7 @@ a {text-decoration: none;}
   z-index: 0;}
 .footer {z-index: 1; background: #272b30;}
 .content {flex-grow: 1;}
-/*.header, .footer {box-shadow: 3px 3px 100px -20px black;}*/
+.header, .footer {box-shadow: 3px 3px 100px -20px black;}
 
 .rounded {border-radius: 0.4rem!important;}
 .rounded-right {border-top-right-radius: 0.4rem!important; border-bottom-right-radius: 0.4rem!important;}
@@ -34,6 +34,7 @@ a {text-decoration: none;}
   h5{font-size: 2.6rem;}
   p{font-size: 2.7rem;}
   a {font-size: 2.5rem;}
+  .header svg {width: 2.7rem; height: 2.7rem;}
   .content {margin-top: 30px;}
   .btn {font-size: 2.8rem;}
   .btn-lg {font-size: 3rem;}
@@ -41,9 +42,9 @@ a {text-decoration: none;}
   .navbar {font-size: 2.3rem; padding: 20px; padding-left: 20px;}
   .navbar .navbar-brand {font-size: 3.5rem;}
   .container {max-width: 97%;}
-  .rounded {border-radius: 0.8rem!important;}
-  .rounded-right {border-top-right-radius: 0.8rem!important; border-bottom-right-radius: 0.8rem!important;}
-  .rounded-left {border-top-left-radius: 0.8rem!important; border-bottom-left-radius: 0.8rem!important;}
+  .rounded {border-radius: 1rem!important;}
+  .rounded-right {border-top-right-radius: 1rem!important; border-bottom-right-radius: 1rem!important;}
+  .rounded-left {border-top-left-radius: 1rem!important; border-bottom-left-radius: 1rem!important;}
 }
 @media (min-width:992px) {
   .header {position: fixed; z-index: 1;}

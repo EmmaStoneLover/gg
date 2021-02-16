@@ -1,7 +1,7 @@
-/* @media (min-width:1000px) {
-  img {padding-bottom: 10px;}
-}
+
+
 
 @media (max-width:991px) {
-  .content img {max-width: 100%; padding-bottom: 30px;}
-} */
+  svg {width: 2.7rem; height: 2.7rem;}
+  .links {margin-top: 83px;}
+} 

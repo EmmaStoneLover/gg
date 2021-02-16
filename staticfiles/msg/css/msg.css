@@ -28,7 +28,9 @@
   #msg_id {font-size: 2.5rem;}
   #msg_id .card-header {font-size: 2.7rem;}
   #msg_id .card-header p {font-size: 3rem;}
-  #msg_id svg, #msg_search svg, #msg_img_add_div svg {width: 2.7rem; height: 2.7rem;}
+  #msg_id svg, #msg_search svg, #msg_img_add_div svg, #msg_title_and_input svg {
+    width: 2.7rem; height: 2.7rem;
+  }
   .content .form-control {font-size: 3rem;}
   .content .form-select {font-size: 3rem;}
   .form-control-file {font-size: 2.5rem;}

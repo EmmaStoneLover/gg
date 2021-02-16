@@ -5,8 +5,10 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
-        <a class="nav-link" href="{% url 'msg' %}">Помойка</a>
-      </li>
+		    <a class="nav-link" href="{% url 'msg' %}">
+		      Помойка {% include 'includes/icons/trash.svg' %}
+		   	</a>
+		  </li>
 			{% if user.username == "volkovmb" or user.username == "zenkinada" %}
 				<li class="nav-item">
         	<a class="nav-link" href="{% url 'privat' %}">Личка</a>
@@ -22,6 +24,7 @@
 							class="nav-link"
 							href="{% url 'account' %}">
 						{{ user.first_name }}
+						{% include 'includes/icons/person-circle.svg' %}
 					</a>
 				{% else %}
 					<a class="nav-link"
@@ -29,7 +32,7 @@
 							id="user_name"
 							name="Войти"
 							href="{% url 'login' %}">
-						Войти
+						Войти {% include 'includes/icons/person-circle.svg' %}
 					</a>
 				{% endif %}
 			</li>

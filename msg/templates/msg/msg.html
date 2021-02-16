@@ -12,18 +12,18 @@
       <div id="msg_title_and_input" class="col-xl-4">
         <!--------------------------------------------------- Помойка и Добавить -->
         <div id="msg_title" class="row justify-content-between">
-          <div class="col-8">
+          <div class="col-7">
             <h1 class="align-left mb-4">
               Помойка
             </h1>
           </div>
-          <div class="col-4">
+          <div class="col-5">
             <div class="d-flex justify-content-end">
               <button id="msg_input_show_button"
                       @click="msg_input = !msg_input"
                       class="btn btn-success pl-4 pr-4 rounded"
                       type="button">
-                  Добавить
+                  {% include 'msg/icons/plus-circle.svg' %} Добавить 
               </button>
             </div>
           </div>

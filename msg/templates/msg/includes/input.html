@@ -22,9 +22,9 @@
             @click="msg_input_adds = !msg_input_adds"
             type="button"
             class="msg_input_button btn bg-dark text-white p-1
-                  mb-md-2 pl-md-4 pl-lg-2 pr-md-4 pr-lg-3 rounded">
-      {% include 'msg/icons/more.svg' %}
-      Дополнительно
+                  mb-md-2 pr-md-4 pr-lg-2 pl-md-4 pl-lg-3 rounded">
+      Дополнительно 
+      <span class="ml-2">{% include 'msg/icons/more.svg' %}</span>
     </button>
     <div id="msg_input_add_hide_div"
          :class="{'d-block': !msg_input_adds}"
@@ -32,12 +32,14 @@
       <div class="form-group mt-md-3 mt-lg-1">
         {{ form.picture_file }}
         <label for="msg_input_picture_file"
-               class="msg_input_text_and_bg_color pl-md-4 pl-lg-3
+               class="msg_input_text_and_bg_color pl-md-4 pl-lg-3 pr-md-4 pr-lg-3
                form-control text-white bg-dark rounded">
-          <span class="pr-md-2 pr-lg-1">
-            {% include 'msg/icons/image.svg' %}
-          </span>
-          Загрузить файл
+          <div class="row justify-content-between">
+            <span class="col-6">Загрузить фото</span>
+            <span class="col-2 text-right">
+              {% include 'msg/icons/image.svg' %}
+            </span>
+          </div>
         </label>
       </div>
       <div class="bs-component">
@@ -60,9 +62,10 @@
       </button>
     </div>
     <div class="col-3 d-sm-none d-xl-block">
-      <a class="nav-link text-success text-right p-0 m-0 pt-4 pr-1"
+      <a class="nav-link text-secondary text-right p-0 m-0 pt-4 pr-1"
          href="#">
         вверх
+        {% include 'msg/icons/arrow-up-short.svg' %}
       </a>
     </div>
   </div>

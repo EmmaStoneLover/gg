@@ -21,7 +21,7 @@
 					<div class="col-md-3 col-lg-2 mt-lg-2">
 						<p>Логин:</p>
 					</div>
-					<div class="col-md-9 col-lg-10 login_password">
+					<div class="col-md-9 col-lg-10 pr-0 login_password">
 						{{ form.username }}
 					</div>
 				</div>
@@ -29,14 +29,14 @@
 					<div class="col-md-3 col-lg-2 mt-lg-2">
 						<p>Пароль:</p>
 					</div>
-					<div class="col-md-9 col-lg-10 login_password mb-md-5 mb-lg-4">
+					<div class="col-md-9 col-lg-10 pr-0 login_password mb-md-5 mb-lg-4">
 						{{ form.password }}
 					</div>
 				</div>
 				<div class="row justify-content-end">
 					<button type="submit"
 									class="col-8 btn btn-success rounded">
-						Войти
+						Войти {% include 'includes/icons/person.svg' %}
 					</button>
 				</div>
       </form>
