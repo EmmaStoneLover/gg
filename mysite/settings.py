@@ -78,22 +78,22 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 
-# DATABASES = {
-# 'default': {
-#     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#     'NAME': 'd8ssvlbbfp2men',
-#     'USER': 'rgjcduelytdelk',
-#     'PASSWORD': '16ac81e4a2ac9f4066d62ea6e8c0e5c2d8daa8294fc9ea1f56626459fe633ec5',
-#     'HOST': 'ec2-54-217-206-236.eu-west-1.compute.amazonaws.com',
-#     'PORT': '5432'
-#     }
-# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'd8ssvlbbfp2men',
+    'USER': 'rgjcduelytdelk',
+    'PASSWORD': '16ac81e4a2ac9f4066d62ea6e8c0e5c2d8daa8294fc9ea1f56626459fe633ec5',
+    'HOST': 'ec2-54-217-206-236.eu-west-1.compute.amazonaws.com',
+    'PORT': '5432'
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
