@@ -34,7 +34,7 @@ a {text-decoration: none;}
   h5{font-size: 2.6rem;}
   p{font-size: 2.7rem;}
   a {font-size: 2.5rem;}
-  .header svg {width: 2.7rem; height: 2.7rem;}
+  .header svg, .content svg {width: 2.7rem; height: 2.7rem;}
   .content {margin-top: 30px;}
   .btn {font-size: 2.8rem;}
   .btn-lg {font-size: 3rem;}

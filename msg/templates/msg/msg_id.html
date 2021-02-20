@@ -18,8 +18,7 @@
        href="/msg/#msg{{msg.id}}">
       Назад
     </a>
-  	<div id="msg_id">
-      <div id="msg_id"
+      <div id=""
            class="msg_msgs card {{ msg.card_bg_color_choice }} mb-4 p-0 rounded
                                 {{ msg.card_font_color_choice }} border-0">
         <div class="card-header">
@@ -27,10 +26,10 @@
         </div>
         <div class="card-img">
           {% if msg.picture != 'none' %}
-            <img src="{{ msg.picture }}">
+            <img class="w-100" src="{{ msg.picture }}">
           {% endif %}
           {% if msg.picture_file != 'none' %}
-            <img src="/media/{{ msg.picture_file }}">
+            <img class="w-100" src="/media/{{ msg.picture_file }}">
           {% endif %}
         </div>
         <div class="card-body">
@@ -43,7 +42,6 @@
           </span>
         </div>
       </div>
-		</div>
 
 	</div>
 
@@ -118,7 +116,7 @@
       {% else %}
 
         <p>Комментариев не будет, они приняли Ислам</p>
-      
+
       {% endif %}
     </div>
 

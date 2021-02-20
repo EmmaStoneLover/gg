@@ -16,4 +16,5 @@
 		width: 100%;
 		border-radius: 0.8rem!important;
 	}
+	#login_input svg {width: 2.7rem; height: 2.7rem;}
 }

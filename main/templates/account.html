@@ -38,8 +38,15 @@
 						Админка
 					</a>
 				{% endif %}
-				<a class="btn btn-danger mb-lg-3
-									pl-md-4 pr-md-4 pl-lg-3 pr-lg-3 rounded"
+				{% if user.username == "volkovmb" or user.username == "zenkinada" %}
+	        <a class="btn btn-info mr-3 mb-lg-3 rounded
+										pl-md-4 pr-md-4 pl-lg-3 pr-lg-3"
+						 href="{% url 'privat' %}">
+						Личка
+					</a>
+				{% endif %}
+				<a class="btn btn-danger mr-3 mb-lg-3 rounded
+										pl-md-4 pr-md-4 pl-lg-3 pr-lg-3"
 						href="{% url 'logout' %}">
 					Выйти {% include 'includes/icons/person-dash.svg' %}
 				</a>

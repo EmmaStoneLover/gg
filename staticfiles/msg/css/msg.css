@@ -3,11 +3,11 @@
 .outerspace { top: -1000px; position:absolute; z-index: -999;}
 .msg_input {border-radius: 3px; z-index: 1;}
 #msg_input_picture_file {position: absolute; display: none;}
-#msg_id .card-header p {margin-bottom: 2px;}
+#msg_id .card_header p {margin-bottom: 2px;}
 #msg_id svg, #msg_search svg, #msg_img_add_div svg {width: 16px; height: 16px;}
-#msg_id img {width: 100%;}
 
 @media (min-width:1200px) {
+  #msg_id img {max-height: 200px; max-width: 200px;}
   #msg_title_and_input {position: fixed; z-index: 1; max-width: 500px!important;}
   #msg_example {position: fixed; z-index: 1; width: 600px; left: 45%;}
   #msg_input_show_button {display: none;}
@@ -15,10 +15,11 @@
   .msg_input_text_and_bg_color, #msg_input_add_hide {
     border: 2px solid rgb(0, 0, 0, 0.1);
   }
-  #msg_example .card-header {max-height: 100px; overflow-y: auto;}
+  #msg_example .card_header {max-height: 100px; overflow-y: auto;}
   #msg_example #input_image {max-height: 500px; overflow-y: auto;}
 }
 @media (max-width:1200px) {
+  #msg_id img {width: 100%;}
   #msg_input {max-width: 100%;}
   .msg_input_text_and_bg_color, #msg_input_add_hide {
     border: 3px solid rgb(0, 0, 0, 0.2);
@@ -26,8 +27,8 @@
 }
 @media (max-width:991px) {
   #msg_id {font-size: 2.5rem;}
-  #msg_id .card-header {font-size: 2.7rem;}
-  #msg_id .card-header p {font-size: 3rem;}
+  #msg_id .card_header {font-size: 2.7rem;}
+  #msg_id .card_header p {font-size: 3rem;}
   #msg_id svg, #msg_search svg, #msg_img_add_div svg, #msg_title_and_input svg {
     width: 2.7rem; height: 2.7rem;
   }
