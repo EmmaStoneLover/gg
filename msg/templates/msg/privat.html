@@ -1,84 +1,71 @@
-{% extends 'wrapper.html' %}
-
-{% block title %} <title>Личные сообщения</title> {% endblock %}
-
-{% block static %}
-  <link rel="stylesheet" href="/static/msg/css/privat.css">
-{% endblock %}
-
-{% block content %}
-
-{% if user.is_authenticated and user.username == 'volkovmb' or user.is_authenticated and user.username == 'zenkinada' %}
-{{ smth|json_script:"smth" }}
-
- <div id="app">
-
-  <form id="input"
-        class="row w-100 p-5 bg-dark"
-        method="post">
-    <div class="col-11">
-      {% csrf_token %}
-      {{form.text}}
-    </div>
-    <div class="col-1 p-0 m-0">
-      <button class="btn btn-info pr-4 pl-4"
-              type="submit">
-        >
-      </button>
-    </div>
-    <br><br>
-  </form>
-  <br>
-  <div>
-    <span class="row justify-content-end mr-2">
-      <h2 class="mr-5">Для Даши и Миши</h2>
-      <a href="#down"
-         class="btn btn-success ml-4 mr-2 pl-3 pr-3 rounded">
-        Вниз
-      </a>
-    </span>
-  </div>
-  <br>
-  <div>
-    {% for msg in messages %}
-
-      <div class="row mb-3
-          {% if user.username == msg.user.username %}
-            justify-content-end
-          {% endif %}">
-        <div id="msg"
-             class="col-11 p-3 pl-4 pr-4 text-white
-             {% if user.username == msg.user.username %} bg-info
-             {% else %} bg-dark
-             {% endif %}">
-          <p class="">{{ msg.text|safe }}</p>
-          <p class=" text-right mb-0">
-            {% if msg.user.first_name == 'Админ'%} Миша
-            {% else %} {{msg.user.first_name}}
-            {% endif %}
-            {{ msg.date|date:'H.i d.m.Y' }}
-          </p>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/bootstrap5/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/general.css">
+    <title>Личные сообщения</title>
+    <link rel="stylesheet" href="/static/msg/css/privat.css">
+  </head>
+  <body>
+    {% include 'includes/header.html' %}
+    <div class="content container">
+      {% if user.is_authenticated and user.username == 'volkovmb' or user.is_authenticated and user.username == 'zenkinada' %}
+      {{ smth|json_script:"smth" }}
+      <div id="app">
+        <form id="input"
+              class="row w-100 p-4 pb-3 pl-3 bg-dark"
+              method="post">
+          <div class="col-11">
+            {% csrf_token %}
+            {{form.text}}
+          </div>
+          <div class="col-1 p-0 m-0">
+            <button class="btn btn-info pr-4 pl-4"
+                    type="submit">
+              >
+            </button>
+          </div>
+          <br><br>
+        </form>
+        <div>
+          <div class="row justify-content-end mr-2">
+            <h2 class="col-100 text-center">Даша и Миша</h2>
+            <a href="#down"
+               class="col btn btn-info ml-4 mr-2 pl-3 pr-3 rounded">
+              Вниз
+            </a>
+          </div>
         </div>
-      </div>
+        <br>
+        <div>
+          {% for msg in messages %}
 
-
-    {% endfor %}
-    <div id="down"></div>
-  </div>
- </div>
-
-
-{% else %}
-  <div class="row justify-content-center">
-    <h1>Идите нахуй, это не вам не доступно</h1>
-  </div>
-{% endif %}
-
-{% endblock %}
-
-{% block js %}
+            <div class="row mb-3
+                {% if user.username == msg.user.username %}justify-content-end{% endif %}">
+              <div id="msg" class="col-11 p-3 pl-4 pr-4 text-white {% if user.username == msg.user.username %} bg-info {% else %} bg-dark {% endif %}">
+                <p class="">{{ msg.text|safe }}</p>
+                <p class=" text-right mb-0">
+                  {% if msg.user.first_name == 'Админ'%} Миша
+                  {% else %} {{msg.user.first_name}}
+                  {% endif %}
+                  {{ msg.date|date:'H.i d.m.Y' }}
+                </p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+       </div>
+      {% else %}
+        <div class="row justify-content-center">
+          <h1>Идите нахуй, это не вам не доступно</h1>
+        </div>
+      {% endif %}
+    </div>
+    <br id="down"><br><br>
   <script src="/static/msg/js/vue.js"></script>
-  <script type="text/javascript"
-          src="/static/msg/js/privat.js">
+  <script type="text/javascript" src="/static/msg/js/privat.js">
   </script>
-{% endblock %}
+  </body>
+</html>
