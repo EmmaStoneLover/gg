@@ -1,3 +1,12 @@
+.bg-primary {background-color: #7350a1!important;}
+.text-primary {color: #7350a1!important;}
+.bg-info {background-color: #337e8a!important;}
+.text-info {color: #337e8a!important;}
+.bg-danger {background-color: #db3553!important;}
+.text-danger {color: #db3553!important;}
+.bg-success {background-color: #28a652!important;}
+.text-success {color: #28a652!important;}
+
 .border-white {border: 1px solid white;}
 #msg_id {text-decoration-line: none;}
 .outerspace { top: -1000px; position:absolute; z-index: -999;}
@@ -7,7 +16,9 @@
 #msg_id svg, #msg_search svg, #msg_img_add_div svg {width: 16px; height: 16px;}
 
 @media (min-width:1200px) {
-  #msg_id img {max-height: auto; max-width: 100px;}
+  .msg_msgs img {max-height: auto; max-width: 100px;}
+  .msg_img {border-radius: 0 0 0 10px;}
+  #input_image img {width: 100%;}
   #msg_title_and_input {position: fixed; z-index: 1; max-width: 500px!important;}
   #msg_example {position: fixed; z-index: 1; width: 600px; left: 45%;}
   #msg_input_show_button {display: none;}
@@ -19,7 +30,7 @@
   #msg_example #input_image {max-height: 500px; overflow-y: auto;}
 }
 @media (max-width:1200px) {
-  #msg_id img {width: 100%;}
+  .msg_msgs img, #input_image img {width: 100%;}
   #msg_input {max-width: 100%;}
   .msg_input_text_and_bg_color, #msg_input_add_hide {
     border: 3px solid rgb(0, 0, 0, 0.2);
@@ -42,4 +53,7 @@
     border: 5px solid rgb(0, 0, 0, 0.2);
   }
   #app form input {border: 5px solid rgb(0, 0, 0, 0.2);}
+  .msg_msgs .msg_text { padding: 24px;
+    padding-left: 32px; padding-right: 32px;
+  }
 }

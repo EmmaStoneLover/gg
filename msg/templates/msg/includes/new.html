@@ -4,27 +4,30 @@
 			 class="msg_msgs card {{ m.card_bg_color_choice }} mb-4 p-0 rounded
 					overflow-hidden {{ m.card_font_color_choice }} border-0">
 		{% if m.picture_file != 'none' or m.picture != 'none' %}
-			<div class="row card_header overflow-hidden">
-				<div class="col-xl-10 msg_text pl-4 pt-2">
-					{{ m.text|safe|linebreaks }}
-				</div>
-				<div class="col-xl-2 card_img overflow-hidden text-right">
-					{% if m.picture_file != 'none' %}
-						<img class="rounded" src="/media/{{ m.picture_file }}">
-					{% endif %}
-					{% if m.picture != 'none' %}
-            <img class="rounded" src="{{ m.picture }}">
-          {% endif %}
+			<div class="card_header overflow-hidden">
+				<div class="row">
+					<div class="col-xl-10 msg_text pl-lg-4 pt-lg-2">
+						<!-- padding md в css: (max-width:991px) .msg_msgs .msg_text -->
+						{{ m.text|safe|linebreaks }}
+					</div>
+					<div class="col-xl-2 overflow-hidden text-right">
+						{% if m.picture_file != 'none' %}
+							<img class="msg_img" src="/media/{{ m.picture_file }}">
+						{% endif %}
+						{% if m.picture != 'none' %}
+	            <img class="msg_img" src="{{ m.picture }}">
+	          {% endif %}
+					</div>
 				</div>
 			</div>
 		{% else %}
-			<div class="row card_header p-1 pr-2 pl-2">
-				<div class="msg_text">
+			<div class="row card_header p-lg-2 pr-lg-2 pl-lg-3 p-md-4">
+				<div class="">
 					{{ m.text|safe|linebreaks }}
 				</div>
 			</div>
 		{% endif %}
-		<div class="card_body p-md-4 p-lg-2">
+		<div class="card_body p-md-4 p-lg-2 pl-lg-3 pr-lg-3">
 			<span class="card_text float-right">
 				{% if m.admin_news == True %}
 					<span>✓</span>
@@ -38,7 +41,7 @@
 					{% include 'msg/icons/pin-angle.svg' %}
 				{% endif %}
 			</span>
-			<span class="msg_user card-title">
+			<span class="msg_user">
 				{{ m.user }}
 			</span>
 		</div>

@@ -10,7 +10,7 @@ class Message(models.Model):
     BG_COLOR_CHOICE = [
         ('bg-dark', 'Темный фон'),
         ('bg-light', 'Светлый фон'),
-        ('bg-primary','Синий фон'),
+        ('bg-primary','Фиолетовый фон'),
         ('bg-success', 'Зеленый фон'),
         ('bg-danger', 'Красный фон'),
         ('bg-warning', 'Желтый фон'),
@@ -19,7 +19,7 @@ class Message(models.Model):
     FONT_COLOR_CHOICE = [
         ('text-white', 'Белый текст'),
         ('text-dark', 'Темный текст'),
-        ('text-primary', 'Синий текст'),
+        ('text-primary', 'Фиолетовый текст'),
         ('text-secondary', 'Серый текст'),
         ('text-warning', 'Желтый текст'),
         ('text-danger', 'Красный текст'),

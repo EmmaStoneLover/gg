@@ -18,13 +18,13 @@
        href="/msg/#msg{{msg.id}}">
       Назад
     </a>
-      <div id=""
-           class="msg_msgs card {{ msg.card_bg_color_choice }} mb-4 p-0 rounded
+      <div id="msg_id"
+           class="card {{ msg.card_bg_color_choice }} mb-4 p-0 rounded
                                 {{ msg.card_font_color_choice }} border-0">
-        <div class="card-header">
+        <div class="card_header pt-lg-2 pb-lg-2 p-md-3">
           {{ msg.text|safe|linebreaks }}
         </div>
-        <div class="card-img">
+        <div class="card_img">
           {% if msg.picture != 'none' %}
             <img class="w-100" src="{{ msg.picture }}">
           {% endif %}
@@ -37,7 +37,7 @@
             {% if msg.admin_news == True %} ✓ {% endif %}
             {{ msg.date|date:'H.i  d.m.Y' }}
           </span>
-          <span class="card-title">
+          <span class="">
             {{ msg.user }}
           </span>
         </div>

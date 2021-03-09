@@ -23,7 +23,7 @@
                       @click="msg_input = !msg_input"
                       class="btn btn-success pl-4 pr-4 rounded"
                       type="button">
-                  {% include 'msg/icons/plus-circle.svg' %} Добавить 
+                  {% include 'msg/icons/plus-circle.svg' %} Добавить
               </button>
             </div>
           </div>
@@ -34,8 +34,8 @@
             <div class="nav-link p-0">
               <div id="msg_id"
                    :class="[vue_card_bg_color_choice, vue_card_font_color_choice]"
-                   class="msg_msgs card mb-4 p-0 border-0 rounded">
-                <div class="card-header p-md-4 p-lg-2"
+                   class="msg_msgs_example card mb-4 p-0 border-0 rounded">
+                <div class="card_header p-md-4 p-lg-2"
                   v-html="vue_text">
                 </div>
                 <div id="input_image">
@@ -54,8 +54,8 @@
           </div>
         </div>
         <!------------------------------------------------ Добавить новость ------>
-        <div id="msg_input" 
-             :class="{'d-md-block': !msg_input, 'd-xl-none': msg_input}" 
+        <div id="msg_input"
+             :class="{'d-md-block': !msg_input, 'd-xl-none': msg_input}"
              class="d-md-none d-xl-block bg-dark text-white mb-4 rounded">
           {% include 'msg/includes/input.html' %}
         </div>
@@ -101,7 +101,7 @@
       <div class="container">
         <p>Новостей нет</p>
       </div>
-      {% endif %} 
+      {% endif %}
     </div>
   </div>
 
